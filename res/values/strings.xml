@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VobForKid</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_study_menu">StudyMenuActivity</string>
+    <string name="title_activity_review_menu">ReviewMenuActivity</string>
+    <string name="title_activity_review_list">ReviewListActivity</string>
+    <string name="title_activity_study">StudyActivity</string>
+    <string name="title_activity_review">ReviewActivity</string>
+    <string name="title_activity_reset">ResetActivity</string>
+    <!-- activity_start_menu -->
+    <string name="play">Chơi</string>
+    <string name="learn">Học từ</string>
+    <string name="review">Ôn tập</string>
+    <string name="setting">Cài đặt</string>
+    <string name="exit">Thoát</string>    
+    
+    <string name="listen">Nghe</string>
+    <string name="guide">Gợi ý</string>
+    <string name="pause">Tạm dừng</string>
+    <string name="silent">Im lặng</string>
+    <string name="ignore">Bỏ qua</string>
+    
+    <string name="no_value">No value</string>
+    <string name="no_image">No Image</string>
+    <string name="select_topic">Chọn chủ đề</string>
+    <string name="word_learned">Các từ đã học</string>
+    <string name="delete_review">Xóa các từ đã học</string>
+    <string name="ok">Đồng ý</string>
+    <string name="cancel">Hủy bỏ</string>
+    
+    <string name="study">Học từ</string>
+    <string name="study_menu">Chọn chủ đề</string>
+    <string name="review_menu">Chọn chủ đề</string>
+    <string name="time">Thời gian</string>
+    <string name="score">Điểm</string>
+    
+    <string name="manage_word_review">Quản lý từ đã học</string>
+
+</resources>

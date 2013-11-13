@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background10"
+    android:orientation="vertical">
+
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:background="@drawable/corlor1"
+        android:textColor="#ffffff"
+        android:text="@string/setting"/>
+    
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#29479f"
+        android:textSize="20sp"
+        android:text="@string/silent" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textColor="#29479f"
+        android:textSize="20sp"
+        android:text="@string/delete_review" />
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="35dp"
+	    android:layout_marginTop="20dp"
+	    android:layout_marginLeft="20dp"
+	    android:gravity="left">
+	    <Button
+	        android:id="@+id/button1"
+	        android:layout_width="80dp"
+	        android:layout_height="40dp"
+	        android:text="@string/ok" />
+	
+	    <Button
+	        android:id="@+id/button2"
+	        android:layout_width="80dp"
+	        android:layout_height="40dp"
+	        android:text="@string/cancel" />
+    </LinearLayout>
+    
+</LinearLayout>

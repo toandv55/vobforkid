@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   	android:background="@drawable/background6">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/color2"
+        android:text="@string/study_menu"/>
+    
+	<GridView
+	    android:id="@+id/gridview"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_margin="20dp" 
+	    android:columnWidth="80dp"
+	    android:layout_gravity="center"
+	    android:gravity="center"
+	    android:horizontalSpacing="10dp"
+	    android:numColumns="4"
+	    android:stretchMode="columnWidth"
+	    android:background="@drawable/color4"
+	    android:alpha="0.8"
+	    android:verticalSpacing="10dp"/>
+</LinearLayout>

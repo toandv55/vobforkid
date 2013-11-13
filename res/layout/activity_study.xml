@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background12">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+	    android:layout_height="30dp"
+	    android:orientation="horizontal"
+	    android:background="@drawable/color2">
+	    
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:text="@string/time"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:text=""/>
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:padding="4dp"
+            android:layout_marginRight="10dp"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:text="@string/score"/>
+    </LinearLayout>
+        
+    <LinearLayout
+        android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_marginTop="5dp"
+	    android:orientation="horizontal">
+        
+	    <LinearLayout
+	        android:id="@+id/left"
+	        android:layout_width="90dp"
+	        android:layout_height="match_parent"
+	        android:layout_marginTop="15dp"
+	        android:orientation="vertical" >
+	        
+	        <ImageView
+		    android:id="@+id/pause"
+	        android:layout_width="40dp"
+	        android:layout_height="40dp"
+	        android:layout_gravity="center"
+	        android:layout_marginTop="20dp"
+	        android:src="@drawable/continue1"
+	        android:contentDescription="@string/no_image"
+	        android:gravity="center"/>
+	        
+	        <ImageView
+		    android:id="@+id/listen"
+	        android:layout_width="40dp"
+	        android:layout_height="40dp"
+	        android:layout_gravity="center"
+	        android:layout_marginTop="10dp"
+	        android:src="@drawable/sound"
+	        android:contentDescription="@string/no_image"/>
+	        
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:id="@+id/center"     
+	        android:layout_width="350dp"
+	        android:layout_height="match_parent"
+	        android:layout_marginTop="3dp"
+	        android:layout_marginBottom="5dp"
+	        android:orientation="vertical" >
+	   		
+	        <ImageView
+	            android:id="@+id/image"
+	            android:layout_width="match_parent"
+	            android:layout_height="140dp"
+	            android:layout_gravity="center"
+	            android:src="@drawable/bag"
+	            android:background="@drawable/color4"
+	            android:contentDescription="@string/no_image"
+	            />
+	        <!-- 
+	        <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:padding="2dp"
+	            android:layout_gravity="center"
+	            android:textSize="14sp"
+	            android:gravity="center"
+	            android:text="@string/no_value"/>
+	        -->
+	        <TextView
+	            android:id="@+id/description"
+	            android:layout_width="match_parent"
+	            android:layout_height="40dp"
+	            android:layout_gravity="center"
+	            android:paddingLeft="10dp"
+	            android:paddingRight="10dp"
+	            android:layout_marginTop="2dp"
+	            android:textSize="16sp"
+	            android:textColor="#0d3566"
+	            android:background="@drawable/color4"
+	            android:gravity="center"
+	            android:text="@string/no_value"/>
+	        
+			<GridView
+			    android:id="@+id/selected"
+			    android:layout_width="fill_parent" 
+			    android:layout_height="40dp"
+			    android:columnWidth="40dp"
+			    android:layout_marginTop="5dp"
+			    android:verticalSpacing="2dp"
+			    android:background="@drawable/color4"
+			    android:horizontalSpacing="2dp"
+			    android:stretchMode="columnWidth"
+			    android:gravity="center"
+			/>
+			
+			<GridView
+			    android:id="@+id/to_select"
+			    android:layout_width="fill_parent" 
+			    android:layout_height="40dp"
+			    android:columnWidth="40dp"
+			    android:layout_marginTop="5dp"
+			    android:verticalSpacing="2dp"
+			    android:background="@drawable/color4"
+			    android:horizontalSpacing="2dp"
+			    android:stretchMode="columnWidth"
+			    android:gravity="center"
+			/>
+	       
+	    </LinearLayout>
+    
+	     <LinearLayout 
+	        android:id="@+id/right"
+	        android:layout_width="90dp"
+	        android:layout_height="match_parent"
+	        android:layout_marginTop="20dp"
+	        android:layout_marginRight="10dp"
+	        android:orientation="vertical">
+	         
+	        <ImageView
+			    android:id="@+id/ignore"
+		        android:layout_width="40dp"
+		        android:layout_height="40dp"
+		        android:layout_gravity="center"
+		        android:layout_marginTop="20dp"
+		        android:gravity="center"
+		        android:src="@drawable/skip"
+		        android:contentDescription="@string/no_image"/>
+	        
+	        <ImageView
+			    android:id="@+id/guide"
+		        android:layout_width="40dp"
+		        android:layout_height="40dp"
+		        android:layout_gravity="center"
+		        android:layout_marginTop="10dp"
+		        android:gravity="center"		        
+		        android:src="@drawable/help1"
+		        android:contentDescription="@string/no_image"/>
+        </LinearLayout>
+	</LinearLayout>
+</LinearLayout>

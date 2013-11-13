@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background13">
+    
+    <LinearLayout
+        android:layout_width="160dp"
+	    android:layout_height="160dp"
+	    android:layout_marginTop="50dp"
+	    android:layout_gravity="center"
+	    android:orientation="vertical">
+	    
+	    <ImageView
+	        android:id="@+id/play"
+	        android:layout_width="match_parent"
+	        android:layout_height="30dp"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:layout_marginTop="5dp"
+	        android:onClick="play"
+	        android:src="@drawable/play1"
+	        android:background="@drawable/color5"
+	        android:alpha="0.8"
+	        android:contentDescription="@string/no_image"/>
+	
+		<ImageView
+	        android:id="@+id/review"
+	        android:layout_width="match_parent"
+	        android:layout_height="30dp"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:layout_marginTop="5dp"
+	        android:onClick="review"
+	        android:src="@drawable/review1"
+	         android:background="@drawable/color5"
+	        android:alpha="0.8"
+	        android:contentDescription="@string/no_image"/>
+		
+		<ImageView
+	        android:id="@+id/setting"
+	        android:layout_width="match_parent"
+	        android:layout_height="30dp"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:layout_marginTop="5dp"
+	        android:onClick="setting"
+	        android:src="@drawable/setting1"	        
+	         android:background="@drawable/color5"
+	        android:alpha="0.8"
+	        android:contentDescription="@string/no_image"/>
+	
+		 <ImageView
+	        android:id="@+id/exit"
+	        android:layout_width="match_parent"
+	        android:layout_height="30dp"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:layout_marginTop="5dp"
+	        android:src="@drawable/exit1"	        
+	        android:background="@drawable/color5"
+	        android:alpha="0.8"
+	        android:contentDescription="@string/no_image"/>
+		 
+	 </LinearLayout>
+    
+</LinearLayout>
