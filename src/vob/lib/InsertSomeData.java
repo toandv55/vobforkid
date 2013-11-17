@@ -29,8 +29,7 @@ public class InsertSomeData {
 		Log.d ("Insert ","Inserting success");
 		
 		
-	/*	Word cat = new Word ("cat","kæt","con meo", null,null,animal);
-		Word dog = new Word ("dog","dɒg","con cho",null,null,animal);
+	/*	
 		Log.d("Insert","Initiate inserting new words ");
 		topicMaper.addWord(cat);
 		topicMaper.addWord(dog);
