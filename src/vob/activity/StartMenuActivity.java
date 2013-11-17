@@ -61,14 +61,21 @@ public class StartMenuActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start_menu);
+		@SuppressWarnings("unused")
 		DatabaseMapper dbm= new DatabaseMapper(this);
 		
+		InsertSomeData inserter = new InsertSomeData(this);
+		inserter.insertTopic();
+		inserter.insertWord();
+		inserter.insertTestdata();
+		
 		/*TopicMapperTest tmt = new TopicMapperTest(this);
-		tmt.getATopicWithWordListTest(this,2);
-		tmt.getTopicOnlyTest(this,2);*/
+		 tmt.getATopicWithWordListTest(this,2);
+		tmt.getTopicOnlyTest(this,2);
+		tmt.getReviewTopicTest(this, 100);*/
 	
 		
-		new InsertSomeData(this);
+		
 		
 		//Test
 		

@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class TopicMapperTest {
 	Context context;
-	
+
 	public TopicMapperTest(Context context) {
 		super();
 		this.context = context;
@@ -21,37 +21,55 @@ public class TopicMapperTest {
 	public void setContext(Context context) {
 		this.context = context;
 	}
-	
-	public void getTopicOnlyTest(Context context,int id){
-		TopicMapper tm= new TopicMapper(context);
+
+	public void getTopicOnlyTest(Context context, int id) {
+		TopicMapper tm = new TopicMapper(context);
 		Topic aTopic = new Topic();
-		aTopic= tm.getTopicOnly(id);
-		
-		String log = "Name: "+ aTopic.getName()+"Id: "+aTopic.getId();
-		if(aTopic.getWordList()== null) 
+		aTopic = tm.getTopicOnly(id);
+
+		String log = "Name: " + aTopic.getName() + "Id: " + aTopic.getId();
+		if (aTopic.getWordList() == null)
 			log += log + "The WordList is null ";
-		Log.d("GetTopic Only Test", log );
-		
+		Log.d("GetTopic Only Test", log);
+
 	}
-	
-	/*Test get a topic with its wordList*/
-	public void getATopicWithWordListTest(Context context, int id){
+
+	/* Test get a topic with its wordList */
+	public void getATopicWithWordListTest(Context context, int id) {
 		TopicMapper tm = new TopicMapper(context);
 		Topic aTopic = new Topic();
 		aTopic = tm.getATopicWithWord(id);
-		
-		String log = "Name: "+ aTopic.getName()+"Id: "+aTopic.getId();
-		if(aTopic.getWordList()!= null) 
+
+		String log = "Name: " + aTopic.getName() + "Id: " + aTopic.getId();
+		if (aTopic.getWordList() != null)
 			log += log + "The WordList is not null ";
-		Log.d("GetTopic Only Test", log );
-		
-		for(Word aWord : aTopic.getWordList()){
-			String log2 = "Name " + aWord.getWord() + " Phonetic  " + aWord.getPhonetic()+ "ID : "+ aWord.getTopicId();
-			Log.d("Word info ", log2 );
+		Log.d("GetTopic Only Test", log);
+
+		for (Word aWord : aTopic.getWordList()) {
+			String log2 = "Name " + aWord.getWord() + " Phonetic  "
+					+ aWord.getPhonetic() + "ID : " + aWord.getTopicId();
+			Log.d("Word info ", log2);
 		}
-	
-		
-		
-		
+	}
+
+	/* Test a topic with its wordList sort by Decesding order */
+	public void getReviewTopicTest(Context context, int id) {
+		TopicMapper tm = new TopicMapper(context);
+		Topic aTopic = new Topic();
+		aTopic = tm.getReviewTopic(id);
+
+		String log = "Name: " + aTopic.getName() + "Id: " + aTopic.getId();
+		if (aTopic.getWordList() != null)
+			log += log + "The WordList is not null ";
+		Log.d("GetTopic Only Test", log);
+
+		for (Word aWord : aTopic.getWordList()) {
+			String log2 = "Name " + aWord.getWord() + " Phonetic  "
+					+ aWord.getPhonetic() + "ID : " + aWord.getTopicId()
+					+ "is Studied " + aWord.getIslearned() + " Studied date "
+					+ aWord.getStudiedDate();
+			Log.d("Word info ", log2);
+		}
+
 	}
 }

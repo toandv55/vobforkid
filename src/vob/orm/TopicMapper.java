@@ -98,7 +98,27 @@ public class TopicMapper extends SQLiteOpenHelper {
 
 		return word;
 	}
+	
+	public Word addTestWord(Word word) {
+		SQLiteDatabase db = this.getWritableDatabase();
 
+		ContentValues values = new ContentValues();
+		values.put(COLUMN_WORD, word.getWord());
+		values.put(COLUMN_PHONETIC, word.getPhonetic());
+		values.put(COLUMN_MEANING, word.getMeaning());
+		values.put(COLUMN_IMAGE_URL, word.getImageURL());
+		values.put(COLUMN_AUDIO_URL, word.getAudioURL());
+		values.put(COLUMN_PARENT, word.getTopic().getId());
+		values.put(COLUMN_LEARNED, word.getIslearned());
+		values.put(COLUMN_STUDIED_DATE, word.getStudiedDate());
+
+		// Inserting Row
+
+		db.insert(TABLE_WORDS, null, values);
+		db.close(); // Closing database connection
+
+		return word;
+	}
 	public Topic find(String id) {
 		return null;
 	}
@@ -269,7 +289,8 @@ public class TopicMapper extends SQLiteOpenHelper {
 		Cursor cursor;
 		List<Word> wordList = new ArrayList<Word>();
 		String getAllWords = "SELECT * FROM " + TABLE_WORDS
-				+ " WHERE topic_id='" + id + "'" + " ORDER BY "
+				+ " WHERE topic_id='" + id + "'" + " AND islearned ='1'"
+				+ " ORDER BY "
 				+ COLUMN_STUDIED_DATE + " DESC";
 		SQLiteDatabase db = this.getWritableDatabase();
 

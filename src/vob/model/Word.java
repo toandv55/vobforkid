@@ -12,6 +12,7 @@ public class Word {
 	private String audioURL;
 	private int topicId;
 	private int islearned;
+	private long studiedDate;
 
 	@BelongsTo(parent = "Topics")
 	private Topic topic;
@@ -31,7 +32,21 @@ public class Word {
 		this.imageURL = imageURL;
 		this.audioURL = audioURL;
 		this.topic = topic;
-		this.islearned = 0 ;
+		this.islearned = 0;
+	}
+
+	public Word(String word, String meaning, String phonetic, String imageURL,
+			String audioURL, int islearned, Topic topic, long studiedDate) {
+		super();
+		this.word = word;
+		this.meaning = meaning;
+		this.phonetic = phonetic;
+		this.imageURL = imageURL;
+		this.audioURL = audioURL;
+		this.topicId = topicId;
+		this.islearned = islearned;
+		this.studiedDate = studiedDate;
+		this.topic = topic;
 	}
 
 	// Getter and Setter block
@@ -98,5 +113,13 @@ public class Word {
 	public void setIslearned(int islearned) {
 		this.islearned = islearned;
 	}
-	
+
+	public long getStudiedDate() {
+		return studiedDate;
+	}
+
+	public void setStudiedDate(long studiedDate) {
+		this.studiedDate = studiedDate;
+	}
+
 }
