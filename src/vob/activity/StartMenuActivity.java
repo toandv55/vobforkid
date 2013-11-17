@@ -1,6 +1,10 @@
 package vob.activity;
 
 import vob.lib.InsertSomeData;
+import vob.test.*;
+import vob.orm.DatabaseMapper;
+import vob.orm.TopicMapper;
+import vob.test.WordTest;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -57,10 +61,23 @@ public class StartMenuActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start_menu);
+		DatabaseMapper dbm= new DatabaseMapper(this);
+		
+		/*TopicMapperTest tmt = new TopicMapperTest(this);
+		tmt.getATopicWithWordListTest(this,2);
+		tmt.getTopicOnlyTest(this,2);*/
+	
 		
 		new InsertSomeData(this);
 		
+		//Test
+		
+		/*WordTest wt = new WordTest(this);
+		wt.testGetWordListOfTopic();*/
 		initView();
+
+
+
 		//review();
 	}
 

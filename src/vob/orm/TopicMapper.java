@@ -30,6 +30,7 @@ public class TopicMapper extends SQLiteOpenHelper {
 	private static final String COLUMN_AUDIO_URL = "audioURL";
 	private static final String COLUMN_PARENT = "topic_id";
 	private static final String COLUMN_LEARNED = "islearned";
+	private static final String COLUMN_STUDIED_DATE = "studiedDate";
 
 	public TopicMapper(Context context) {
 		super(context, DB_NAME, null, DATABASE_VERSION);
@@ -46,7 +47,8 @@ public class TopicMapper extends SQLiteOpenHelper {
 				+ COLUMN_WORD + " TEXT PRIMARY KEY," + COLUMN_PHONETIC
 				+ " TEXT," + COLUMN_MEANING + " TEXT," + COLUMN_IMAGE_URL
 				+ " TEXT," + COLUMN_AUDIO_URL + " TEXT," + COLUMN_PARENT
-				+ " INTEGER," + COLUMN_LEARNED + " INTEGER" + ")";
+				+ " INTEGER," + COLUMN_LEARNED + " INTEGER,"
+				+ COLUMN_STUDIED_DATE + " INTEGER" + ")";
 		db.execSQL(CREATE_WORDS_TABLE);
 		db.execSQL(CREATE_TOPICS_TABLE);
 		new Alert(context, "onCreate").show();
@@ -119,6 +121,36 @@ public class TopicMapper extends SQLiteOpenHelper {
 				aword.setAudioURL(cursor.getString(4));
 				aword.setTopicId(cursor.getInt(5));
 				aword.setIslearned(cursor.getInt(6));
+				aword.setStudiedDate(cursor.getLong(7));
+
+				wordsList.add(aword);
+			} while (cursor.moveToNext());
+		}
+
+		return wordsList;
+	}
+
+	public List<Word> getWordListOfTopic(int id) {
+		List<Word> wordsList = new ArrayList<Word>();
+		Cursor cursor;
+		String getAllWords = "SELECT * FROM " + TABLE_WORDS
+				+ " WHERE topic_id='" + id + "'";
+		;
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		// fetch the result set in to Word List
+		cursor = db.rawQuery(getAllWords, null);
+		if (cursor.moveToFirst()) {
+			do {
+				Word aword = new Word();
+				aword.setWord(cursor.getString(0));
+				aword.setPhonetic(cursor.getString(1));
+				aword.setMeaning(cursor.getString(2));
+				aword.setImageURL(cursor.getString(3));
+				aword.setAudioURL(cursor.getString(4));
+				aword.setTopicId(cursor.getInt(5));
+				aword.setIslearned(cursor.getInt(6));
+				aword.setStudiedDate(cursor.getLong(7));
 
 				wordsList.add(aword);
 			} while (cursor.moveToNext());
@@ -170,20 +202,24 @@ public class TopicMapper extends SQLiteOpenHelper {
 	public Word updateLearned(Word aWord, int value) {
 		aWord.setIslearned(value);
 		SQLiteDatabase db = this.getWritableDatabase();
-		String sql = "update words set islearned= " + value + " where word='"+aWord.getWord() + "'";
+		String sql = "update words set islearned= " + value + " where word='"
+				+ aWord.getWord() + "'";
 		Log.d(sql, "toan");
 		db.execSQL(sql);
-		return aWord; 
-	}
-	public Word deleteWord(Word aWord){
-		SQLiteDatabase db = this.getWritableDatabase();
-		db.delete(TABLE_WORDS, COLUMN_WORD + " = ?", new String[] { String.valueOf(aWord.getWord()) });
 		return aWord;
 	}
-	
-	public Topic deleteTopic(Topic aTopic){
+
+	public Word deleteWord(Word aWord) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.delete(TABLE_TOPICS, COLUMN_TOPIC_ID + " = ?", new String[] { String.valueOf(aTopic.getId()) });
+		db.delete(TABLE_WORDS, COLUMN_WORD + " = ?",
+				new String[] { String.valueOf(aWord.getWord()) });
+		return aWord;
+	}
+
+	public Topic deleteTopic(Topic aTopic) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(TABLE_TOPICS, COLUMN_TOPIC_ID + " = ?",
+				new String[] { String.valueOf(aTopic.getId()) });
 		return aTopic;
 	}
 
@@ -195,7 +231,112 @@ public class TopicMapper extends SQLiteOpenHelper {
 		return null;
 	}
 
+	// get specific topic without word
+	public Topic getTopicOnly(int id) {
+		Cursor cursor;
+		SQLiteDatabase db = getReadableDatabase();
+		String sql = "SELECT * FROM " + TABLE_TOPICS + " WHERE id='" + id + "'";
+		Topic atopic = new Topic();
+		cursor = db.rawQuery(sql, null);
+		if (cursor.moveToFirst()) {
+			do {
+
+				atopic.setId(cursor.getInt(0));
+				atopic.setName(cursor.getString(1));
+				atopic.setImageURL(cursor.getString(2));
+				atopic.setWordList(null);
+			} while (cursor.moveToNext());
+		}
+		return atopic;
+	}
+
+	// get specific topic with its wordList
+	public Topic getATopicWithWord(int id) {
+		Topic atopic = new Topic();
+		List<Word> wordList = new ArrayList();
+
+		atopic = getTopicOnly(id);
+		wordList = getWordListOfTopic(id);
+		atopic.setWordList(wordList);
+
+		return atopic;
+	}
+
+	// get the learned wordList of a topic sorted by time
+	public Topic getReviewTopic(int id) {
+		Topic reviewTopic = new Topic();
+
+		Cursor cursor;
+		List<Word> wordList = new ArrayList<Word>();
+		String getAllWords = "SELECT * FROM " + TABLE_WORDS
+				+ " WHERE topic_id='" + id + "'" + " ORDER BY "
+				+ COLUMN_STUDIED_DATE + " DESC";
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		// fetch the result set in to Word List
+		cursor = db.rawQuery(getAllWords, null);
+		if (cursor.moveToFirst()) {
+			do {
+				Word aword = new Word();
+				aword.setWord(cursor.getString(0));
+				aword.setPhonetic(cursor.getString(1));
+				aword.setMeaning(cursor.getString(2));
+				aword.setImageURL(cursor.getString(3));
+				aword.setAudioURL(cursor.getString(4));
+				aword.setTopicId(cursor.getInt(5));
+				aword.setIslearned(cursor.getInt(6));
+				aword.setStudiedDate(cursor.getLong(7));
+
+				wordList.add(aword);
+			} while (cursor.moveToNext());
+		}
+		reviewTopic.setWordList(wordList);
+		return reviewTopic;
+	}
+
+	// get the learned wordList of a topic limit by input parameter
+	public Topic getReviewTopic(int id, int limit) {
+		
+		Topic reviewTopic = new Topic();
+
+		Cursor cursor;
+		List<Word> wordList = new ArrayList<Word>();
+		String getAllWords = "SELECT * FROM " + TABLE_WORDS
+				+ " WHERE topic_id='" + id + "'" + " LIMIT " + limit ;
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		// fetch the result set in to Word List
+		cursor = db.rawQuery(getAllWords, null);
+		if (cursor.moveToFirst()) {
+			do {
+				Word aword = new Word();
+				aword.setWord(cursor.getString(0));
+				aword.setPhonetic(cursor.getString(1));
+				aword.setMeaning(cursor.getString(2));
+				aword.setImageURL(cursor.getString(3));
+				aword.setAudioURL(cursor.getString(4));
+				aword.setTopicId(cursor.getInt(5));
+				aword.setIslearned(cursor.getInt(6));
+				aword.setStudiedDate(cursor.getLong(7));
+
+				wordList.add(aword);
+			} while (cursor.moveToNext());
+		}
+		reviewTopic.setWordList(wordList);
+		return reviewTopic;
+	}
+
 	public static void main(String[] arg0) {
 
 	}
+
+	/* Getter and Setter block */
+	public Context getContext() {
+		return context;
+	}
+
+	public void setContext(Context context) {
+		this.context = context;
+	}
+
 }
