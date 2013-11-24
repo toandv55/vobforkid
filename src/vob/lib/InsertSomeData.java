@@ -22,30 +22,7 @@ public class InsertSomeData {
 	public InsertSomeData(Context mycontext) {
 		context= mycontext;
 		
-	/*	
-		Log.d("Insert","Initiate inserting new words ");
-		topicMaper.addWord(cat);
-		topicMaper.addWord(dog);
-		
-		Log.d("Insert terminate ","Insert words succesfull");
-		
-		Log.d("Reading all Words","Reading all Words ...");
-		List <Word> list = topicMaper.getAllWord();
-		
-		for(Word aWord : list){
-			String log = "Name " + aWord.getWord() + " Phonetic  " + aWord.getPhonetic()+ "ID : "+ aWord.getTopicId();
-			Log.d("Word info ", log );
-		}
-		
-		Log.d("Reading all Topic ","Reading all Topic  ...");
-		List <Topic> alist = topicMaper.getAllTopics();
-		
-		for(Topic aTopic : alist){
-			String log = "ID : " + aTopic.getId() + "Name :" + aTopic.getName();
-			Log.d("Topic info ", log );
-		}*/
-		
-		//Create List Animal object to be inserted. 
+	
 		
 		
 	}
@@ -54,9 +31,32 @@ public class InsertSomeData {
 				
 		Topic animal = new Topic(1, "animal", "animal", null );
 		Topic clothes = new Topic(2, "clothes", "clothes", null );
+		Topic food = new Topic(3, "food", "food", null );
+		Topic fairytail = new Topic(4,"fairy tail", "fairy tail", null);
+		Topic emotion = new Topic(5,"emotion", "emotion", null);
+		Topic family = new Topic(6,"family", "family", null);
+		Topic holiday = new Topic(7,"holiday", "holiday", null);
+		Topic body = new Topic(8,"body", "body", null);
+		Topic job = new Topic(9,"job", "job", null);
+		Topic sport = new Topic(10,"sport", "sport", null);
+		Topic transportaion = new Topic(11,"transportaion", "transportaion", null);
+		Topic wheather = new Topic(12,"wheather", "wheather", null);
+		
 		Log.d ("Insert ","Initiate inserting new topics  ");
 		topicMaper.add(animal);
 		topicMaper.add(clothes);
+		topicMaper.add(food);
+		topicMaper.add(fairytail);
+		topicMaper.add(emotion);
+		topicMaper.add(family);
+		topicMaper.add(holiday);
+		topicMaper.add(body);
+		topicMaper.add(job);
+		topicMaper.add(sport);
+		topicMaper.add(transportaion);
+		topicMaper.add(wheather);
+		
+		
 		Log.d ("Insert ","Inserting topic success");
 	}
 	
@@ -65,7 +65,9 @@ public class InsertSomeData {
 		Topic animal = new Topic(1, "animal", "animal", null );
 		Topic clothes = new Topic(2, "clothes", "clothes", null );
 		/*
-		Create WordList to be insert*/
+		Create WordList to be insert
+		1st List Animal*/
+		
 		Word bird = new Word (	"bird","bɜd",	"con chim", "bird",	"bird",	animal);
 		Word chicken = new Word (	"chicken",	"tʃɪk.ɪn",	"con gà", "chicken",	"chicken",	animal);
 		Word cow = new Word (	"cow",	"kaʊ",	"con bò", "cow",	"cow",	animal);
@@ -129,7 +131,59 @@ public class InsertSomeData {
         addList.add(watch);
         addList.add(shirt);
         addList.add(jacket);
-		
+        
+        /*List food*/
+        Topic food = new Topic(3, "food", "food", null );
+        
+        Word bread = new Word("bread", "bred", "bánh mì", "bread", "bread", food);
+        
+        Word breakfast = new Word("breakfast", "bred", "bánh mì", "breakfast", "breakfast", food);
+        Word cake = new Word("cake", "keɪk", "bánh ngọt", "cake", "cake", food);
+        Word candy = new Word("candy", "kæn.di", "kẹo", "candy", "candy", food);
+        Word carrot = new Word("carrot", "kær", "củ cà rốt", "carrot", "carrot", food);
+        Word chocolate = new Word("chocolate", "tʃɒk.lət", "Chocolate", "chocolate", "chocolate", food);
+        Word coconut = new Word("coconut", "kəʊ.kə.nʌt ", "quả dừa", "coconut", "coconut", food);
+        Word dinner = new Word("dinner", "dɪn.ər", "bữa tối", "dinner", "dinner", food);
+        Word fish = new Word("fish", "fɪʃ", "cá", "fish", "fish", food);
+        Word fruit = new Word("fruit", "frut", "hoa quả", "fruit", "fruit", food);
+        Word icecream = new Word("icecream", "aɪskrim", "kem", "icecream", "icecream", food);
+        Word juice = new Word("juice", "dʒus", "nước hoa quả", "juice", "juice", food);
+        Word lemonade = new Word("lemonade", "lem.əneɪd", "nước chanh", "lemonade", "lemonade", food);
+        Word lunch = new Word("lunch", "lʌntʃ", "bữa trưa", "lunch", "lunch", food);
+        Word milk = new Word("milk", "mɪlk ", "sữa", "milk", "milk", food);
+        Word onion = new Word("onion", "ʌn.jən", "củ hành", "onion", "onion", food);
+        Word pea = new Word("pea", "pi:", "đậu hà lan", "pea", "pea", food);
+        Word rice = new Word("rice", "raɪs", "gạo", "rice", "rice", food);
+        Word supper = new Word("supper", "sʌp.ər", "bữa tối", "supper", "supper", food);
+        Word tomato = new Word("tomato", "təmɑ.təʊ", "cà chua", "tomato", "tomato", food);
+        Word water = new Word("water", "wɔ.tər", "nước", "water", "water", food);
+        Word watermelon = new Word("watermelon", "wɔ.təmel.ən", "dưa hấu", "watermelon", "watermelon", food);
+       
+        addList.add(breakfast);
+        addList.add(cake);
+        addList.add(candy);
+        addList.add(chocolate);
+        addList.add(coconut);
+        addList.add(dinner);
+        addList.add(fish);
+        addList.add(fruit);
+        addList.add(icecream);
+        addList.add(lemonade);
+        addList.add(lunch);
+        addList.add(milk);
+        addList.add(onion);
+        addList.add(pea);
+        addList.add(rice);
+        addList.add(supper);
+        addList.add(tomato);
+        addList.add(water);
+        addList.add(watermelon);
+        addList.add(carrot);
+        addList.add(juice);
+        
+        
+       
+
 		TopicMapper topicMaper = new TopicMapper(context);
 		// Insert WordList into database
 		for (Word aWord : addList){

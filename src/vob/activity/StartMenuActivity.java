@@ -15,77 +15,81 @@ import android.widget.ImageView;
 public class StartMenuActivity extends Activity {
 
 	private void initView() {
-		//play ImageView
+		// play ImageView
 		ImageView play = (ImageView) findViewById(R.id.play);
 		play.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				play();
 			}
 		});
-		
-		//review ImageView
+
+		// review ImageView
 		ImageView review = (ImageView) findViewById(R.id.review);
 		review.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				review();
-				
+
 			}
 		});
-		
-		//setting ImageView
+
+		// setting ImageView
 		ImageView setting = (ImageView) findViewById(R.id.setting);
 		setting.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				setting();
 			}
 		});
-		
-		//quit ImageView
+
+		// quit ImageView
 		ImageView exit = (ImageView) findViewById(R.id.exit);
 		exit.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				exit();
 			}
 		});
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start_menu);
 		@SuppressWarnings("unused")
-		DatabaseMapper dbm= new DatabaseMapper(this);
-		
-		InsertSomeData inserter = new InsertSomeData(this);
-		inserter.insertTopic();
-		inserter.insertWord();
-		inserter.insertTestdata();
-		
-		/*TopicMapperTest tmt = new TopicMapperTest(this);
-		 tmt.getATopicWithWordListTest(this,2);
-		tmt.getTopicOnlyTest(this,2);
-		tmt.getReviewTopicTest(this, 100);*/
-	
+		DatabaseMapper dbm = new DatabaseMapper(this);
 		
 		
-		
-		//Test
-		
-		/*WordTest wt = new WordTest(this);
-		wt.testGetWordListOfTopic();*/
+		if (!dbm.checkExistData()) {
+			InsertSomeData inserter = new InsertSomeData(this);
+			try {
+				inserter.insertTopic();
+				inserter.insertWord();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		/*dbm.deleteDatabse();*/
+		/*
+		 * TopicMapperTest tmt = new TopicMapperTest(this);
+		 * tmt.getATopicWithWordListTest(this,2); tmt.getTopicOnlyTest(this,2);
+		 * tmt.getReviewTopicTest(this, 100);
+		 */
+
+		// Test
+
+		/*
+		 * WordTest wt = new WordTest(this); wt.testGetWordListOfTopic();
+		 */
 		initView();
 
-
-
-		//review();
+		// review();
 	}
 
 	@Override
@@ -94,24 +98,27 @@ public class StartMenuActivity extends Activity {
 		getMenuInflater().inflate(R.menu.start_menu, menu);
 		return true;
 	}
+
 	/**
 	 * Switches to PlayMenuActivity
+	 * 
 	 * @param v
 	 */
 	public void play() {
 		Intent intent = new Intent(this, StudyMenuActivity.class);
 		startActivity(intent);
 	}
-	
+
 	public void review() {
 		Intent intent = new Intent(this, ReviewMenuActivity.class);
 		startActivity(intent);
 	}
-	
+
 	public void setting() {
 		Intent intent = new Intent(this, SettingActivity.class);
 		startActivity(intent);
 	}
+
 	public void exit() {
 		finish();
 		System.exit(0);

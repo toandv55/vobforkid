@@ -186,4 +186,14 @@ public class WordMapper extends SQLiteOpenHelper {
 
 		return wordsList;
 	}
+	public Word updateLearnDate(Word aWord, long value) {
+		aWord.setStudiedDate(value);
+		SQLiteDatabase db = this.getWritableDatabase();
+		String sql = "update words set islearned= " + value + " where studiedDate='"
+				+ aWord.getStudiedDate()+ "'";
+		Log.d(sql, "Update StudiedDate");
+		db.execSQL(sql);
+		return aWord;
+	}
+
 }
