@@ -346,6 +346,16 @@ public class TopicMapper extends SQLiteOpenHelper {
 		reviewTopic.setWordList(wordList);
 		return reviewTopic;
 	}
+	
+	public Word updateLearnDate(Word aWord, long value) {
+		aWord.setStudiedDate(value);
+		SQLiteDatabase db = this.getWritableDatabase();
+		String sql = "update words set islearned= " + value + " where studiedDate='"
+				+ aWord.getStudiedDate()+ "'";
+		Log.d(sql, "Update StudiedDate");
+		db.execSQL(sql);
+		return aWord;
+	}
 
 	public static void main(String[] arg0) {
 
