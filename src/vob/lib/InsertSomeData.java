@@ -132,7 +132,7 @@ public class InsertSomeData {
         addList.add(shirt);
         addList.add(jacket);
         
-        /*List food*/
+        /*3 List food*/
         Topic food = new Topic(3, "food", "food", null );
         
         Word bread = new Word("bread", "bred", "bánh mì", "bread", "bread", food);
@@ -159,6 +159,7 @@ public class InsertSomeData {
         Word water = new Word("water", "wɔ.tər", "nước", "water", "water", food);
         Word watermelon = new Word("watermelon", "wɔ.təmel.ən", "dưa hấu", "watermelon", "watermelon", food);
        
+        addList.add(bread);
         addList.add(breakfast);
         addList.add(cake);
         addList.add(candy);
@@ -181,8 +182,172 @@ public class InsertSomeData {
         addList.add(carrot);
         addList.add(juice);
         
+        /*4. List fairy tail*/
         
+        Topic fairytail = new Topic(4,"fairy tail", "fairy tail", null);
+        Word castle = new Word("castle", 	"kɑ.sl", 	"lâu đài", 	"castle", 	"castle", 	fairytail);
+        Word cinderella = new Word("cinderella", "sɪn.dərel.ə", "cô bé lọ lem", "cinderella", "cinderella", fairytail);
+        Word crown = new Word("crown", "kraʊn", "vương miện", "crown", "crown", fairytail);
+        Word dragon = new Word("dragon", "dræg.ən", "rồng", "dragon", "dragon", fairytail);
+        Word dwarf = new Word("dwarf", "dwɔf", "chú lùn", "dwarf", "dwarf", fairytail);
+        Word elf = new Word("elf", "elf", "yêu tinh", "elf", "elf", fairytail);
+        Word fairy = new Word("fairy", "feə.ri ", "tiên", "fairy", "fairy", fairytail);
+        Word giant = new Word("giant", "dʒaɪ.ənt", "người khổng lồ", "giant", "giant", fairytail);
+        Word gnome = new Word("gnome", "nəʊm ", "thần lùn giữ của", "gnome", "gnome", fairytail);
+        Word king = new Word("king", "kɪŋ", "vua", "king", "king", fairytail);
+        Word knight = new Word("knight", "naɪt", "kỵ sĩ", "knight", "knight", fairytail);
+        Word leprechaun = new Word("leprechaun", "lep.rɪ.kɔn", "yêu tình(Ai-len)", "leprechaun", "leprechaun", fairytail);
+        Word monster = new Word("monster", "mɒnt.stər", "quái vật", "monster", "monster", fairytail);
+        Word ogre = new Word("ogre", "əʊ.gər", "yêu tinh ăn thịt người", "ogre", "ogre", fairytail);
+        Word prince = new Word("prince", "prɪnts", "công chúa", "prince", "prince", fairytail);
+        Word princess = new Word("princess", "prɪnses", "hoàng tử", "bread", "bread", fairytail);
+        Word queen = new Word("queen", "kwin", "nữ hoàng", "princess", "princess", fairytail);
+        Word scepter = new Word("scepter", "sep.tər", "quyền trượng", "scepter", "scepter", fairytail);
+        Word throne = new Word("throne", "θrəʊn", "ngai vàng", "throne", "throne", fairytail);
+        Word witch = new Word("witch", "witch", "phù thủy", "witch", "witch", fairytail);
+        
+        addList.add(castle);
+        addList.add(cinderella);
+        addList.add(crown);
+        addList.add(dragon);
+        addList.add(dwarf);
+        addList.add(elf);
+        addList.add(fairy);
+        addList.add(giant);
+        addList.add(gnome);
+        addList.add(king);
+        addList.add(knight);
+        addList.add(leprechaun);
+        addList.add(monster);
+        addList.add(ogre);
+        addList.add(prince);
+        addList.add(princess);
+        addList.add(queen);
+        addList.add(scepter);
+        addList.add(throne);
+        addList.add(witch);
+        
+        /*5. Emotion*/
+        
+        
+        Word afraid = new Word("afraid", "əfreɪd ", "sợ hãi", "afraid", "afraid", fairytail);
+        Word angry = new Word("angry", "æŋ.gri ", "tức giận", "angry", "angry", fairytail);
+        Word ashamed = new Word("ashamed", "əʃeɪmd ", "hổ thẹn", "ashamed", "ashamed", fairytail);
+        Word bored = new Word("bored", "bɔ:d", " ", "chán", "bored", fairytail);
+        Word courageous = new Word("kəreɪ.dʒəs", "bred", "can đảm, dũng cảm", "courageous", "courageous", fairytail);
+        Word cruel = new Word("bread", "kru.əl", "thô bạo, thô lỗ", "cruel", "cruel", fairytail);
+        Word disgusted = new Word("disgusted", "dɪsgʌs.tɪd", "chán ghét, ghê tởm", "disgusted", "disgusted", fairytail);
+        Word excited = new Word("excited", "ɪksaɪ.tɪd", "thích thú", "excited", "excited", fairytail);
+        Word frustrated = new Word("frustrated", "frʌstreɪ.tɪd", "ức chế", "frustrated", "frustrated", fairytail);
+        Word happy = new Word("happy", "hæp.i", "hạnh phúc, vui vẻ", "happy", "happy", fairytail);
+        Word love = new Word("love", "lʌv", "đang yêy", "love", "love", fairytail);
+        Word mad = new Word("mad", "mæd", "điên rồ", "mad", "mad", fairytail);
+        Word overwhelmed = new Word("overwhelmed", "əʊ.vəwelm", "không kiềm chế được", "overwhelmed", "overwhelmed", fairytail);
+        Word proud = new Word("proud", "praʊd", "tự hào", "proud", "proud", fairytail);
+        Word respectful = new Word("respectful", "rɪspekt.fəl", "kính trọng", "respectful", "respectful", fairytail);
+        Word rude = new Word("rude", "ru:d", "thô lỗ", "rude", "rude", fairytail);
+        Word sad = new Word("sad", "sæd", "buồn", "sad", "sad", fairytail);
+        Word scared = new Word("scared", "skeəd", "sợ hãi", "scared", "scared", fairytail);
+        Word shy = new Word("shy", "ʃaɪ", "xấu hổ", "shy", "shy", fairytail);
+        Word stressed = new Word("stressed", "strest", "căng thẳng", "stressed", "stressed", fairytail);
+        Word surprised = new Word("surprised", "bred", "ngạc nhiên", "surprised", "surprised", fairytail);
+        Word tired = new Word("tired", "taɪəd", "mệt mỏi", "tired", "tired", fairytail);
        
+        addList.add(afraid);
+        addList.add(angry);
+        addList.add(ashamed);
+        addList.add(bored);
+        addList.add(courageous);
+        addList.add(disgusted);
+        addList.add(excited);
+        addList.add(frustrated);
+        addList.add(frustrated);
+        addList.add(happy);
+        addList.add(love);
+        addList.add(mad);
+        addList.add(overwhelmed);
+        addList.add(proud);
+        addList.add(respectful);
+        addList.add(rude);
+        addList.add(sad);
+        addList.add(scared);
+        addList.add(shy);
+        addList.add(cruel);
+        addList.add(stressed);
+        addList.add(surprised);
+        addList.add(tired);
+       
+        /*6. Family*/
+        Topic family = new Topic(6,"family", "family", null);
+        
+        Word aunt = new Word("aunt", "ɑnt  ", "cô, dì, thím, mợ", "aunt", "aunt", family);
+        Word baby = new Word("baby", "beɪ.bi ", "trẻ con", "baby", "baby", family);
+        Word bride = new Word("bride", "braɪd ", "cô dâu", "bride", "bride", family);
+        Word brother = new Word("brother", "brʌð.ər ", "anh trai, em trai", "brother", "brother", family);
+        Word daughter = new Word("daughter", "dɔ.tər ", "con gái", "daughter", "daughter", family);
+        Word father = new Word("father", "fɑ.ðər ", "bố", "father", "father", family);
+        Word granddaughter = new Word("granddaughter", "grænd.dɔ.tər ", "cháu gái", "granddaughter", "granddaughter", family);
+        Word grandfather = new Word("grandfather", "grænd.fɑ.ðər ", "ông", "grandfather", "grandfather", family);
+        Word grandmother = new Word("grandmother", "grænd.mʌð.ər ", "bà", "grandmother", "grandmother", family);
+        Word grandson = new Word("grandson", "grænd.sʌn ", "cháu", "grandson", "grandson", family);
+        Word groom = new Word("groom", "grum", "chú rể", "groom", "groom", family);
+        Word mother = new Word("mother", "mʌð.ə r   ", "mẹ", "mother", "mother", family);
+        Word nephew = new Word("nephew", "nef.ju ", "cháu trai", "nephew", "nephew", family);
+        Word niece = new Word("niece", "ni:s ", "cháu gái", "niece", "niece", family);
+        Word sibling = new Word("sibling", "sɪb.lɪŋ ", "anh, chị em ruột", "sibling", "sibling", family);
+        Word sister = new Word("sister", "sɪs.tər", "chị gái, em gái", "sister", "sister", family);
+        Word son = new Word("son", "sʌn ", "con", "son", "son", family);
+        Word twin = new Word("twin", "twɪn ", "sinh đôi", "twin", "twin", family);
+        Word uncle = new Word("uncle", "ʌŋ.kl", "chú, bác", "uncle", "uncle", family);
+        
+        addList.add(aunt);
+        addList.add(baby);
+        addList.add(bride);
+        addList.add(brother);
+        addList.add(daughter);
+        addList.add(father);
+        addList.add(granddaughter);
+        addList.add(grandfather);
+        addList.add(grandmother);
+        addList.add(grandson);
+        addList.add(groom);
+        addList.add(sibling);
+        addList.add(sister);
+        addList.add(son);
+        addList.add(twin);
+        addList.add(uncle);
+        addList.add(mother);
+        addList.add(mother);
+        addList.add(nephew);
+        addList.add(niece);
+        
+        /*7. Holiday*/
+        Topic holiday = new Topic(7,"holiday", "holiday", null);
+        Word anniversary = new Word("anniversary", "æn.ɪvɜ.sər.i", "lễ kỉ niệm ",holiday);
+        Word balloon = new Word("balloon", "bəlun", "bóng bay",holiday);
+        Word card = new Word("card", "kɑd", "thiệp chúc mừng",holiday);
+        Word birthday = new Word("birthday", "bɜ:θdeɪ ", "sinh nhật",holiday);
+        Word bouquet = new Word("bouquet", "bʊkeɪ", "bó hoa",holiday);
+        Word bridesmaid = new Word("bridesmaid", "braɪdz.meɪd", "phù dâu",holiday);
+        Word christmas = new Word("christmas", "krɪs.məs", "giáng sinh",holiday);
+        Word confetti = new Word("confetti", "kənfet.i", "hoa giấy",holiday);
+        Word celebration = new Word("celebration", "sel.ɪbreɪ.ʃən", "lễ kỉ niệm",holiday);
+        Word firework = new Word("firework", "faɪə.wɜk", "pháo hoa",holiday);
+        Word mask = new Word("mask", "mɑ:sk", "mặt nạ",holiday);
+        Word eve = new Word("newyearseve", "njujɪəziv", "giao thừa",holiday);
+        Word ornament = new Word("ornament", "ɔ:nə.mənt", "đồ trang sức",holiday);
+        Word party = new Word("party", "pɑ:ti", "bữa tiệc",holiday);
+        Word present = new Word("present", "prez.ənt", "món quà",holiday);
+        Word priest = new Word("priest", "pri:st", "thầy tu",holiday);
+        Word santa = new Word("Santa Claus ", "sæn.təklɔz", "ông già No-en",holiday);
+        Word thanksgiving = new Word("thanksgiving", "θæŋksgɪv.ɪŋ", "lễ tạ ơn",holiday);
+        Word turkey = new Word("turkey", "tɜ.ki", "gà tây",holiday);
+        Word wrap = new Word("wrap", "/ræp ", "gói quà",holiday);
+        Word wedding = new Word("wedding", "wed.ɪŋ", "đám cưới",holiday);
+        
+        
+        
+        
 
 		TopicMapper topicMaper = new TopicMapper(context);
 		// Insert WordList into database
