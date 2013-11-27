@@ -345,7 +345,112 @@ public class InsertSomeData {
         Word wrap = new Word("wrap", "/ræp ", "gói quà",holiday);
         Word wedding = new Word("wedding", "wed.ɪŋ", "đám cưới",holiday);
         
+        addList.add(anniversary);
+        addList.add(balloon);
+        addList.add(card);
+        addList.add(birthday);
+        addList.add(bouquet);
+        addList.add(bridesmaid);
+        addList.add(christmas);
+        addList.add(confetti);
+        addList.add(celebration);
+        addList.add(firework);
+        addList.add(mask);
+        addList.add(ornament);
+        addList.add(party);
+        addList.add(present);
+        addList.add(eve);
+        addList.add(priest);
+        addList.add(santa);
+        addList.add(thanksgiving);
+        addList.add(turkey);
+        addList.add(wrap);
+        addList.add(wedding);
         
+        /*8. Body*/
+        
+        Topic body = new Topic(8,"body", "body", null);
+        Word arm = new Word("arm", "ɑ:m", "cánh tay",body);
+        Word calf = new Word("calf", "kɑ:f", "bắp chân",body);
+        Word cheek = new Word("cheek", "tʃi:k", "má",body);
+        Word chin = new Word("chin", "tʃɪn ", "cằm",body);
+        Word ear = new Word("ear", "ɪr ", "tai",body);
+        Word elbow = new Word("elbow", "el.bəʊ", "cùi trỏ",body);
+        Word eye = new Word("eye", "aɪ ", "mắt",body);
+        Word eyebrow = new Word("eyebrow", "aɪ.braʊ", "lông mày",body);
+        Word eyelash = new Word("eyelash", "aɪ.læʃ", "lông mi",body);
+        
+        Word fist = new Word("fist", "fɪst", "nắm đấm",body);
+        Word foot = new Word("foot", "fʊt ", "bàn chân",body);
+        Word forehead = new Word("foot", "fɒr.ɪd", "trán",body);
+        Word gum = new Word("gum", "gʌm", "lợi",body);
+        Word hair = new Word("hair", "heər", "tóc",body);
+        Word hand = new Word("hand", "hænd", "bàn tay",body);
+        Word heel = new Word("heel", "hil", "gót chân",body);
+        Word iris = new Word("iris", "aɪ.rɪs", "con ngươi",body);
+        Word knee = new Word("knee", "ni:", "xương bánh chè",body);
+        Word leg = new Word("leg", "leg", "chân",body);
+        Word lip = new Word("lip", "lɪp ", "môi",body);
+        Word muscle = new Word("muscle", "", "cơ bắp",body);
+        Word mustache = new Word("mustache", "mʌs.l", "ria mép",body);
+        Word nail = new Word("nail", "neɪl", "móng chân, móng tay",body);
+        Word neck = new Word("neck", "nek ", "cổ",body);
+        Word nose = new Word("nose", "nəʊz", "mũi",body);
+        Word palm = new Word("palm", "pɑm", "bàn tay",body);
+        Word pupil = new Word("pupil", "pju.pəl", "đồng tử, mắt",body);
+        Word shoulder = new Word("shoulder", "ʃəʊl.dər", "vai",body);
+        Word sideburns = new Word("sideburns", "saɪd.bɜnz", "râu quai nón",body);
+        Word skeleton = new Word("skeleton", "skel.ɪ.tən", "bộ xương",body);
+        Word skull = new Word("skull", "skʌl", "đầu lâu",body);
+        Word thigh = new Word("thigh", "θaɪ ", "đùi",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+
+        addList.add(arm);addList.add(calf);addList.add(cheek);addList.add(chin);addList.add(ear);
+        addList.add(elbow);addList.add(eye);addList.add(eyebrow);addList.add(eyelash);
+        addList.add(fist);addList.add(gum);addList.add(heel);addList.add(leg);
+        addList.add(foot);addList.add(hair);addList.add(iris);addList.add(lip);
+        addList.add(forehead);addList.add(hand);addList.add(knee);addList.add(muscle);
+        addList.add(mustache);addList.add(nail);addList.add(neck);addList.add(nose);
+        addList.add(palm);addList.add(pupil);addList.add(shoulder);addList.add(sideburns);
+        addList.add(skeleton);addList.add(skull);addList.add(thigh);addList.add(tooth);
+       
+        /*9.job*/
+        Topic job = new Topic(9,"job", "job", null);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+        Word tooth = new Word("tooth", "tuθ", "răng",body);
+
         
         
 
