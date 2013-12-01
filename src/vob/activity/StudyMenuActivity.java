@@ -2,8 +2,10 @@ package vob.activity;
 
 import java.util.List;
 
+import vob.lib.InsertSomeData;
 import vob.lib.ResourceR;
 import vob.model.Topic;
+import vob.orm.DatabaseMapper;
 import vob.orm.TopicMapper;
 import android.app.Activity;
 import android.content.Context;
@@ -26,7 +28,7 @@ public class StudyMenuActivity extends Activity {
 	
 	private void init() {
 		TopicMapper topicMapper = new TopicMapper(this);
-		listTopic = topicMapper.getAllTopics(false);		
+		listTopic = topicMapper.getAllTopics();		
 	}
 	
 	private void initView() {

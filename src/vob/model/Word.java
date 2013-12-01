@@ -34,6 +34,17 @@ public class Word {
 		this.topic = topic;
 		this.islearned = 0;
 	}
+	public Word(String word, String phonetic, String meaning , Topic topic) {
+		super();
+		this.word = word;
+		this.phonetic = phonetic;
+		this.meaning = meaning;
+		this.imageURL = word;
+		this.audioURL = word;
+		this.topic = topic;
+		this.islearned = 0;
+	}
+
 
 	public Word(String word, String meaning, String phonetic, String imageURL,
 			String audioURL, int islearned, Topic topic, long studiedDate) {

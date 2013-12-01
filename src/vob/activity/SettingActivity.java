@@ -10,23 +10,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class SettingActivity extends Activity {
 
 	private void initView() {
-		/*
+		
 		final CheckBox musicBackground = (CheckBox) findViewById(R.id.music_background);
 		final CheckBox deleteReview = (CheckBox) findViewById(R.id.delete_review);
-		final RadioButton chooseTime = (RadioButton) findViewById(R.id.choose_time);
-		final RadioButton chooseLevel = (RadioButton) findViewById(R.id.choose_level);
-		*/
+		final RadioGroup chooseTime = (RadioGroup) findViewById(R.id.choose_time);
+		final RadioGroup chooseLevel = (RadioGroup) findViewById(R.id.choose_level);
+		
 		Button ok = (Button) findViewById(R.id.ok);
 		ok.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				new Alert(SettingActivity.this, "Ok click").show();
-				/*
+				
 				if(musicBackground.isChecked()) {
 					
 				}
@@ -35,10 +36,15 @@ public class SettingActivity extends Activity {
 					
 				}
 				
-				String time = (String) chooseTime.getText();
+				int chooseTimeId = chooseTime.getCheckedRadioButtonId();
+				RadioButton rbChooseTime = (RadioButton) findViewById(chooseTimeId);
+				String time = (String) rbChooseTime.getText();
 				Game.timePlay = Integer.parseInt(time);
 				
-				String strLevel = (String) chooseLevel.getText();
+				int chooseLevelId = chooseTime.getCheckedRadioButtonId();
+				RadioButton rbChooseLevel = (RadioButton) findViewById(chooseLevelId);
+				String strLevel = (String) rbChooseLevel.getText();
+				
 				int level = 1;
 				if(strLevel.equals("Dễ") == true) {
 					level = 1;
@@ -50,8 +56,8 @@ public class SettingActivity extends Activity {
 					level = 5;
 				}
 				Game.level = level;
-				*/
-				//SettingActivity.this.finish();
+				
+				SettingActivity.this.finish();
 			}
 		});
 		

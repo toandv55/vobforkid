@@ -98,6 +98,9 @@ public class StudyActivity extends Activity {
 				guide.startAnimation(AnimationUtils.loadAnimation(StudyActivity.this, R.anim.zoom_out));
 			}
 		});
+		
+		final ImageView add_score = (ImageView) findViewById(R.id.add_score);
+		add_score.setVisibility(View.INVISIBLE);
 	}
 	
 	private void init() {
@@ -192,7 +195,7 @@ public class StudyActivity extends Activity {
 		
         try {
         	 MediaPlayer mp = new MediaPlayer();
-        	 mp = MediaPlayer.create(this, ResourceR.getRaw(this, gameWord.getAudioURL()));  
+        	 mp = MediaPlayer.create(this, ResourceR.getRaw(this, gameWord.getAudioURL()));        	 
              mp.start();
         } catch(Exception e) {
         	
@@ -212,6 +215,7 @@ public class StudyActivity extends Activity {
 		if(currentWord >= listWord.size() - 1) {
 			time.stop();
 			new Dialog(this, "Đã hết từ", "Chúc mừng bạn đã đạt được " + Game.scoreTotal + "điểm").show();
+			return;
 		}
 		
 		gameWord = new GameWord(listWord.get(pos[currentWord]), Game.level);
@@ -224,6 +228,7 @@ public class StudyActivity extends Activity {
 		
 		TopicMapper topicMapper = new TopicMapper(this);
 		topicMapper.updateLearned(listWord.get(pos[currentWord]), 1);
+		//topicMapper.updateLearnDate(aWord, value)
 		
 		showImage();
 		showDescription();
@@ -238,7 +243,9 @@ public class StudyActivity extends Activity {
     		ignore();
     		
     		final ImageView add_score = (ImageView) findViewById(R.id.add_score);
-    		MyAnimation.start(MyAnimation.moverY(add_score, 100, -100, 2000, 1));
+    		add_score.setVisibility(View.VISIBLE);
+    		add_score.setImageResource(ResourceR.getDrawable(this, "add_" + scoreForWord));
+    		MyAnimation.start(MyAnimation.moverY(add_score, 0, -150, 4000, 0));
     	}
 	}
 	

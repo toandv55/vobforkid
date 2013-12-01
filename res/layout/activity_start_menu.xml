@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"        
         android:gravity="left"
-        android:src="@drawable/cloud1"
+        android:src="@drawable/cl03"
         android:contentDescription="@string/no_image"
         android:alpha="0.7"/>
     <LinearLayout
