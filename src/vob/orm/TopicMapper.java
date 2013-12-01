@@ -178,6 +178,28 @@ public class TopicMapper extends SQLiteOpenHelper {
 
 		return wordsList;
 	}
+	
+	public List<Topic> getAllTopicsOnly() {
+		List<Topic> topicsList = new ArrayList<Topic>();
+		Cursor cursor;
+		String getAllTopics = "SELECT * FROM " + TABLE_TOPICS;
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		// fetch the result set into Topic List
+		cursor = db.rawQuery(getAllTopics, null);
+		if (cursor.moveToFirst()) {
+			do {
+				Topic atopic = new Topic();
+				atopic.setId(cursor.getInt(0));
+				atopic.setName(cursor.getString(1));
+				atopic.setImageURL(cursor.getString(2));
+				atopic.setWordList(null);
+
+				topicsList.add(atopic);
+			} while (cursor.moveToNext());
+		}
+		return topicsList;
+	}
 
 	public List<Topic> getAllTopics() {
 		List<Topic> topicsList = new ArrayList<Topic>();
@@ -314,7 +336,7 @@ public class TopicMapper extends SQLiteOpenHelper {
 		reviewTopic.setWordList(wordList);
 		return reviewTopic;
 	}
-
+	/*
 	// get the learned wordList of a topic limit by input parameter
 	public Topic getReviewTopic(int id, int limit) {
 		
@@ -346,12 +368,14 @@ public class TopicMapper extends SQLiteOpenHelper {
 		reviewTopic.setWordList(wordList);
 		return reviewTopic;
 	}
-	
+	*/
 	public Word updateLearnDate(Word aWord, long value) {
 		aWord.setStudiedDate(value);
 		SQLiteDatabase db = this.getWritableDatabase();
-		String sql = "update words set islearned= " + value + " where studiedDate='"
-				+ aWord.getStudiedDate()+ "'";
+		
+		String sql = "update words set studiedDate= " + value + " where word ='"
+				+ aWord.getWord()+ "'";
+		
 		Log.d(sql, "Update StudiedDate");
 		db.execSQL(sql);
 		return aWord;

@@ -41,7 +41,7 @@ public class SettingActivity extends Activity {
 				String time = (String) rbChooseTime.getText();
 				Game.timePlay = Integer.parseInt(time);
 				
-				int chooseLevelId = chooseTime.getCheckedRadioButtonId();
+				int chooseLevelId = chooseLevel.getCheckedRadioButtonId();
 				RadioButton rbChooseLevel = (RadioButton) findViewById(chooseLevelId);
 				String strLevel = (String) rbChooseLevel.getText();
 				
