@@ -1,6 +1,5 @@
 package vob.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Bundle;
@@ -24,37 +23,11 @@ public class ReviewActivity extends FragmentActivity {
 		int idTopic = bundle.getInt("idTopic");
 		String word = bundle.getString("word");
 		
-		List<Word> allWord;
-		//new Alert(this, "" + idTopic).show();
-		if(idTopic == -1) {
-			TopicMapper topicMapper = new TopicMapper(this);
-			allWord = topicMapper.getAllWord();
-			
-		} else {
-			TopicMapper topicMapper = new TopicMapper(this);
-			List<Topic> listTopic = topicMapper.getAllTopics();
-			
-			Topic topicCurrent = null;
-			
-			for(Topic t : listTopic) {
-				if(t.getId() == idTopic) {
-					topicCurrent = t;
-					break;
-				}
-			}
-			
-			allWord = topicCurrent.getWordList();
-		}
+		TopicMapper topicMapper = new TopicMapper(this);
 		
-		listWord  = new ArrayList<Word>();
-		
-		
-		for(Word w : allWord) {
-			//Log.d("list animal", w.getWord());
-			if(w.getIslearned() > 0) {
-				listWord.add(w);
-			}
-		}
+		listWord = topicMapper.getReviewTopic(idTopic).getWordList();
+	
+		pos = 0;
 		
 		for(Word w : listWord) {
 			if(w.getWord().equals(word) == true) {
@@ -71,10 +44,6 @@ public class ReviewActivity extends FragmentActivity {
 		setContentView(R.layout.activity_review);
 		
 		init();
-		//listWord = new ArrayList<Word>();
-		//listWord.add(new Word("abcd", "go", "di","image3"));
-		//listWord.add(new Word("bcda", "play", "chơi", "image4"));
-		//listWord.add(new Word("cdab", "run", "Chay", "image5"));
 		
 		ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
 		viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager()));

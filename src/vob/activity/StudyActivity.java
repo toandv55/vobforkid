@@ -1,33 +1,39 @@
 package vob.activity;
 
+import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 
+import vob.game.Game;
 import vob.game.GameWord;
 import vob.lib.*;
-import vob.model.Topic;
 import vob.model.Word;
 import vob.orm.TopicMapper;
-import vob.test.GameWordTest;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import anim.MyAnimation;
 
 public class StudyActivity extends Activity {
 	
 	private List<Word> listWord;
 	private int currentWord;
 	private GameWord gameWord;
-	private int level = 0;
+	private int scoreForWord = 0;
 	private int[] pos;
+	private Timer time;
 	
 	private void genPos() {
 		
@@ -43,7 +49,55 @@ public class StudyActivity extends Activity {
 				ran = (ran + 1) % size;
 			}
 			pos[i] = ran;
+			selected[ran] = true;
 		}
+	}
+	
+	private void initView() {
+		
+		final ImageView pause  = (ImageView) findViewById(R.id.pause);
+		pause.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				if(time.isRunning() == true) {
+					time.stop();
+					pause.setImageResource(ResourceR.getDrawable(StudyActivity.this, "pause_icon"));
+				} else {
+					time.startCountDown();
+					pause.setImageResource(ResourceR.getDrawable(StudyActivity.this, "continue_icon"));
+				}
+				pause.startAnimation(AnimationUtils.loadAnimation(StudyActivity.this, R.anim.zoom_out));
+			}
+		});
+		
+		final ImageView listen = (ImageView) findViewById(R.id.listen);
+		listen.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				listen();
+				listen.startAnimation(AnimationUtils.loadAnimation(StudyActivity.this, R.anim.zoom_out));
+			}
+		});
+		
+		//ignore button
+		final ImageView ignore = (ImageView) findViewById(R.id.ignore);
+		ignore.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View arg0) {
+				ignore();
+				ignore.startAnimation(AnimationUtils.loadAnimation(StudyActivity.this, R.anim.zoom_out));
+			}
+		});
+		
+		//guide button
+		final ImageView guide = (ImageView) findViewById(R.id.guide);
+		guide.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View arg0) {
+				guide();
+				guide.startAnimation(AnimationUtils.loadAnimation(StudyActivity.this, R.anim.zoom_out));
+			}
+		});
 	}
 	
 	private void init() {
@@ -53,58 +107,19 @@ public class StudyActivity extends Activity {
 		int topicId = bundle.getInt("idTopic");
 		
 		TopicMapper topicMapper = new TopicMapper(this);
-		if(topicId == -1) {			
-			listWord = topicMapper.getAllWord();
-			
-		} else {			
-			List<Topic> listTopic = topicMapper.getAllTopics();
-			
-			Topic topicCurrent = null;
-			
-			for(Topic t : listTopic) {
-				if(t.getId() == topicId) {
-					topicCurrent = t;
-					break;
-				}
-			}
-			
-			listWord = topicCurrent.getWordList();
-		}
 		
-		currentWord = 0;
+		listWord = topicMapper.getATopicWithWord(topicId).getWordList();
+				
+		//set time
+		time = new Timer(this, (TextView) findViewById(R.id.time));
+		time.setTimeHave(Game.timePlay);
+		time.startCountDown();
+		
 		genPos();
 		
-		while(listWord.get(pos[currentWord]).getWord().length() > 6 && currentWord < listWord.size()) {
-			currentWord++;
-		}		
-		
-		gameWord = new GameWord(listWord.get(pos[currentWord]), level);
-				
-		//update learned
-		topicMapper.updateLearned(listWord.get(pos[currentWord]), 1);
-		
-		GameWordTest test = new GameWordTest();
-		if(!test.test()) {
-			new Alert(this, "gameWord err").show();
-		}
-		
-		ImageView ignore = (ImageView) findViewById(R.id.ignore);
-		ignore.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				ignore();				
-			}
-		});
-		
-		ImageView guide = (ImageView) findViewById(R.id.guide);
-		guide.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				guide();	
-			}
-		});
+		currentWord = -1;
+		ignore();
+		Game.scoreTotal = 0;
 	}
 	
 	@Override
@@ -112,11 +127,8 @@ public class StudyActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_study);
 		
-		init();
-		
-		showImage();
-		showDescription();
-		update();
+		initView();
+		init();		
 	}
 	
 	
@@ -131,7 +143,7 @@ public class StudyActivity extends Activity {
 	
 	private void showImage() {
 		ImageView image = (ImageView) findViewById(R.id.image);
-		image.setImageResource(GetImage.getDrawable(this, gameWord.getImageURL()));
+		image.setImageResource(ResourceR.getDrawable(this, gameWord.getImageURL()));
 	}
 	
 	private void showDescription() {
@@ -166,31 +178,49 @@ public class StudyActivity extends Activity {
 	        	
 	        	gameWord.select(position);
 	        	
-	        	if(gameWord.check() == true) {
-	        		new Alert(StudyActivity.this, "Chúc mừng bạn đã chọn đúng!").show();
-	        		ignore();
-	        	}
+	        	checkWord();
 	        	
 	        	update();
 	        }
 	    });
+		
+		TextView tvscoreTotal = (TextView) findViewById(R.id.score);
+		tvscoreTotal.setText("Điểm : " + Game.scoreTotal);
 	}
 	
-	/*
-	private void pauseActivity() {
+	private void listen() {
 		
+        try {
+        	 MediaPlayer mp = new MediaPlayer();
+        	 mp = MediaPlayer.create(this, ResourceR.getRaw(this, gameWord.getAudioURL()));  
+             mp.start();
+        } catch(Exception e) {
+        	
+        }
 	}
 	
-	private void resumeActivity() {
-		
-	}
-	*/
+	//next word
 	private void ignore() {
+		
 		currentWord++;
-		while(listWord.get(pos[currentWord]).getWord().length() > 6 && currentWord < listWord.size()) {
+		
+		while(currentWord < listWord.size() - 1 && (listWord.get(pos[currentWord]).getWord().length() >= 5 + Game.level
+				|| listWord.get(pos[currentWord]).getWord().length() <= 1 + Game.level)) {
 			currentWord++;
+		}		
+		
+		if(currentWord >= listWord.size() - 1) {
+			time.stop();
+			new Dialog(this, "Đã hết từ", "Chúc mừng bạn đã đạt được " + Game.scoreTotal + "điểm").show();
 		}
-		gameWord = new GameWord(listWord.get(pos[currentWord]), level);
+		
+		gameWord = new GameWord(listWord.get(pos[currentWord]), Game.level);
+		
+		scoreForWord = gameWord.getWord().length() * 10;
+		
+		//set this word is leared at time
+		Calendar c = Calendar.getInstance();
+		int time = c.DATE * 24 * 60 * 60 + c.MILLISECOND / 1000;
 		
 		TopicMapper topicMapper = new TopicMapper(this);
 		topicMapper.updateLearned(listWord.get(pos[currentWord]), 1);
@@ -200,19 +230,29 @@ public class StudyActivity extends Activity {
 		update();
 	}
 	
+	private void checkWord() {
+		if(gameWord.check() == true) {
+    		if(scoreForWord < 0) scoreForWord = 0;
+    		new Alert(StudyActivity.this, "Chúc mừng bạn đã chọn đúng!\n Điểm cộng " + scoreForWord).show();
+    		Game.scoreTotal += scoreForWord;
+    		ignore();
+    		
+    		final ImageView add_score = (ImageView) findViewById(R.id.add_score);
+    		MyAnimation.start(MyAnimation.moverY(add_score, 100, -100, 2000, 1));
+    	}
+	}
+	
+	//guide a character
 	private void guide() {
 		
 		gameWord.guide();
 		
-		if(gameWord.check() == true) {
-    		new Alert(StudyActivity.this, "true").show();
-    		ignore();
-    	}
-		//showImage();
-		//showDescription();
+		scoreForWord -= 15;
+		
+		checkWord();
+		
 		update();
 	}
-
 }
 
 /*Adapter for this Activity*/
@@ -241,9 +281,9 @@ class ImageAdapter extends ArrayAdapter<String> {
 			imageView.setPadding(2, 2, 2, 2);
 			//imageView.setImageResource(R.drawable.z);
 			if(content.charAt(position) != '_') {
-				imageView.setImageResource(GetImage.getDrawable(mContext, "" + content.charAt(position)));
+				imageView.setImageResource(ResourceR.getDrawable(mContext, "" + content.charAt(position)));
 			} else {
-				imageView.setImageResource(GetImage.getDrawable(mContext, "hoi"));
+				imageView.setImageResource(ResourceR.getDrawable(mContext, "hoi"));
 			}
 		} else {
 		    imageView = (ImageView) convertView;

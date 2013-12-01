@@ -96,10 +96,19 @@ public class GameWord extends Word {
 	}
 	
 	public void guide() {
-		
-		if(numSelected >= getWord().length()) {
-			return;
+				
+		for(int i = numSelected - 1; i >= 0; i--) {
+			if(getWord().charAt(i) != selected.charAt(i)) {
+				
+				//xoa bo cac tu da chon sai
+				for(int j = i; j < numSelected; j++) {
+					remove(j);
+				}
+				
+				numSelected = i;
+			}
 		}
+		
 		
 		for(int i =  0; i < toSelect.length(); i++) {
 			if(getWord().charAt(numSelected) == toSelect.charAt(i)) {

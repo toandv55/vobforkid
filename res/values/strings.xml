@@ -38,5 +38,14 @@
     <string name="score">Điểm</string>
     
     <string name="manage_word_review">Quản lý từ đã học</string>
-
+    <string name="choose_time">Chọn thời gian</string>
+    <string name="_5">5</string>
+    <string name="_10">10</string>
+    <string name="_15">15</string>
+    <string name="choose_level">Chọn độ khó</string>
+    <string name="easy">Dễ</string>
+    <string name="medium">Vừa</string>
+    <string name="hard">Khó</string>
+    <string name="very_hard">Rất khó</string>
+	<string name="music_background">Âm thanh nền</string>
 </resources>

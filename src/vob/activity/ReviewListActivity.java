@@ -1,10 +1,8 @@
 package vob.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import vob.lib.GetImage;
-import vob.model.Topic;
+import vob.lib.ResourceR;
 import vob.model.Word;
 import vob.orm.TopicMapper;
 import android.os.Bundle;
@@ -29,37 +27,9 @@ public class ReviewListActivity extends Activity {
 		Bundle bundle = getIntent().getExtras();		
 		idTopic = bundle.getInt("idTopic");
 		
-		List<Word> allWord;
-		//new Alert(this, "" + idTopic).show();
-		if(idTopic == -1) {
-			TopicMapper topicMapper = new TopicMapper(this);
-			allWord = topicMapper.getAllWord();
-			
-		} else {
-			TopicMapper topicMapper = new TopicMapper(this);
-			List<Topic> listTopic = topicMapper.getAllTopics();
-			
-			Topic topicCurrent = null;
-			
-			for(Topic t : listTopic) {
-				if(t.getId() == idTopic) {
-					topicCurrent = t;
-					break;
-				}
-			}
-			
-			allWord = topicCurrent.getWordList();
-		}
+		TopicMapper topicMapper = new TopicMapper(this);
 		
-		listWord  = new ArrayList<Word>();
-		
-		
-		for(Word w : allWord) {
-			//Log.d("list animal", w.getWord());
-			if(w.getIslearned() > 0) {
-				listWord.add(w);
-			}
-		}
+		listWord = topicMapper.getReviewTopic(idTopic).getWordList();
 		
 	}
 	
@@ -113,7 +83,7 @@ class RowListWordAdapter extends ArrayAdapter<String> {
 		row = inflater.inflate(R.layout.review_menu_list_view_content, null);
 		
 		ImageView imageView = (ImageView) row.findViewById(R.id.image);
-		imageView.setImageResource(GetImage.getDrawable(context, word.getImageURL()));
+		imageView.setImageResource(ResourceR.getDrawable(context, word.getImageURL()));
 		
 		
 		TextView tvRow = (TextView) row.findViewById(R.id.tvViewRow);

@@ -5,6 +5,7 @@ import java.util.List;
 import vob.activity.R;
 import vob.model.Word;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -36,15 +37,25 @@ public class PageFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		
+		 final Word word = listWord.get(getArguments().getInt("index"));
+		 
 		 View view = inflater.inflate(R.layout.review_fragment_content, container, false);
 		 
 		 ImageView imageView = (ImageView) view.findViewById(R.id.image);		 
 		 TextView tv = (TextView)view.findViewById(R.id.description);
 		 
-		 Word word = listWord.get(getArguments().getInt("index"));
+		 imageView.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View arg0) {
+	        	 MediaPlayer mp = new MediaPlayer();
+	        	 mp = MediaPlayer.create(mcontext, ResourceR.getRaw(mcontext, word.getAudioURL()));  
+	             mp.start();
+			}
+		});
 		 
-		 imageView.setImageResource(GetImage.getDrawable(mcontext, word.getImageURL()));
+		
+		 
+		 imageView.setImageResource(ResourceR.getDrawable(mcontext, word.getImageURL()));
 		 tv.setText("/" + word.getPhonetic() + "/\n" + word.getMeaning());
 		 
 		return view;

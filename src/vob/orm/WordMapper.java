@@ -24,7 +24,7 @@ public class WordMapper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
 	private static final String COLUMN_STUDIED_DATE = "studiedDate";
 	private static final String TABLE_WORDS = "words";
-
+	
 	public WordMapper(Context context) {
 		super(context, DB_NAME, null, DATABASE_VERSION);
 	}
@@ -34,7 +34,7 @@ public class WordMapper extends SQLiteOpenHelper {
 		/*
 		 * Do nothing here Table creation in DatabaseMapper
 		 */
-
+		
 	}
 
 	@Override
@@ -186,14 +186,4 @@ public class WordMapper extends SQLiteOpenHelper {
 
 		return wordsList;
 	}
-	public Word updateLearnDate(Word aWord, long value) {
-		aWord.setStudiedDate(value);
-		SQLiteDatabase db = this.getWritableDatabase();
-		String sql = "update words set islearned= " + value + " where studiedDate='"
-				+ aWord.getStudiedDate()+ "'";
-		Log.d(sql, "Update StudiedDate");
-		db.execSQL(sql);
-		return aWord;
-	}
-
 }

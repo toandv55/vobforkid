@@ -4,11 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background13">
-    
+    <ImageView
+        android:id="@+id/clound"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"        
+        android:gravity="left"
+        android:src="@drawable/cloud1"
+        android:contentDescription="@string/no_image"
+        android:alpha="0.7"/>
     <LinearLayout
         android:layout_width="160dp"
 	    android:layout_height="160dp"
-	    android:layout_marginTop="50dp"
 	    android:layout_gravity="center"
 	    android:orientation="vertical">
 	    
@@ -20,7 +26,7 @@
 	        android:gravity="center"
 	        android:layout_marginTop="5dp"
 	        android:onClick="play"
-	        android:src="@drawable/play1"
+	        android:src="@drawable/play_icon"
 	        android:background="@drawable/color5"
 	        android:alpha="0.8"
 	        android:contentDescription="@string/no_image"/>
@@ -33,7 +39,7 @@
 	        android:gravity="center"
 	        android:layout_marginTop="5dp"
 	        android:onClick="review"
-	        android:src="@drawable/review1"
+	        android:src="@drawable/review_icon"
 	         android:background="@drawable/color5"
 	        android:alpha="0.8"
 	        android:contentDescription="@string/no_image"/>
@@ -46,7 +52,7 @@
 	        android:gravity="center"
 	        android:layout_marginTop="5dp"
 	        android:onClick="setting"
-	        android:src="@drawable/setting1"	        
+	        android:src="@drawable/setting_icon"	        
 	         android:background="@drawable/color5"
 	        android:alpha="0.8"
 	        android:contentDescription="@string/no_image"/>
@@ -58,7 +64,7 @@
 	        android:layout_gravity="center"
 	        android:gravity="center"
 	        android:layout_marginTop="5dp"
-	        android:src="@drawable/exit1"	        
+	        android:src="@drawable/exit_icon"	        
 	        android:background="@drawable/color5"
 	        android:alpha="0.8"
 	        android:contentDescription="@string/no_image"/>

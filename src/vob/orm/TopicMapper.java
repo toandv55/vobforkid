@@ -179,12 +179,12 @@ public class TopicMapper extends SQLiteOpenHelper {
 		return wordsList;
 	}
 
-	public List<Topic> getAllTopics() {
+	public List<Topic> getAllTopics(boolean haveWordList) {
 		List<Topic> topicsList = new ArrayList<Topic>();
 		List<Word> wordsList = new ArrayList<Word>();
 		Cursor cursor;
 		String getAllTopics = "SELECT * FROM " + TABLE_TOPICS;
-		String getAllWords = "SELECT * FROM " + TABLE_WORDS;
+		//String getAllWords = "SELECT * FROM " + TABLE_WORDS;
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		// fetch the result set into Topic List
@@ -200,25 +200,32 @@ public class TopicMapper extends SQLiteOpenHelper {
 				topicsList.add(atopic);
 			} while (cursor.moveToNext());
 		}
-
-		wordsList = getAllWord();
-
-		for (Topic aTopic : topicsList) {
-			aTopic.setWordList(new ArrayList<Word>());
-		}
-
-		// get the wordList of each topic sdfsdf
-		for (Topic aTopic : topicsList) {
-			for (Word aWord : wordsList) {
-				if (aTopic.getId() == aWord.getTopicId()) {
-					aTopic.getWordList().add(aWord);
+		
+		if(haveWordList == true) {
+		
+			wordsList = getAllWord();
+	
+			for (Topic aTopic : topicsList) {
+				aTopic.setWordList(new ArrayList<Word>());
+			}
+	
+			// get the wordList of each topic sdfsdf
+			for (Topic aTopic : topicsList) {
+				for (Word aWord : wordsList) {
+					if (aTopic.getId() == aWord.getTopicId()) {
+						aTopic.getWordList().add(aWord);
+					}
 				}
+			}
+		} else {
+			for(Topic aTopic : topicsList) {
+				aTopic.setWordList(null);
 			}
 		}
 
 		return topicsList;
 	}
-
+	
 	public Word updateLearned(Word aWord, int value) {
 		aWord.setIslearned(value);
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -345,16 +352,6 @@ public class TopicMapper extends SQLiteOpenHelper {
 		}
 		reviewTopic.setWordList(wordList);
 		return reviewTopic;
-	}
-	
-	public Word updateLearnDate(Word aWord, long value) {
-		aWord.setStudiedDate(value);
-		SQLiteDatabase db = this.getWritableDatabase();
-		String sql = "update words set islearned= " + value + " where studiedDate='"
-				+ aWord.getStudiedDate()+ "'";
-		Log.d(sql, "Update StudiedDate");
-		db.execSQL(sql);
-		return aWord;
 	}
 
 	public static void main(String[] arg0) {

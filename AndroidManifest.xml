@@ -10,9 +10,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/application_icon"
         android:label="@string/app_name"
-       android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+       	android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
         <activity
             android:name="vob.activity.StartMenuActivity"
             android:label="@string/app_name" >
@@ -47,6 +47,7 @@
             android:name="vob.activity.ReviewListActivity"
             android:label="@string/title_activity_review_list" >
         </activity>
+        
     </application>
 
 </manifest>

@@ -2,7 +2,7 @@ package vob.activity;
 
 import java.util.List;
 
-import vob.lib.GetImage;
+import vob.lib.ResourceR;
 import vob.model.Topic;
 import vob.orm.TopicMapper;
 import android.app.Activity;
@@ -26,9 +26,7 @@ public class StudyMenuActivity extends Activity {
 	
 	private void init() {
 		TopicMapper topicMapper = new TopicMapper(this);
-		listTopic = topicMapper.getAllTopics();
-		Topic all = new Topic(-1, "All Topic", "all_topic", null);
-		listTopic.add(0, all);
+		listTopic = topicMapper.getAllTopics(false);		
 	}
 	
 	private void initView() {
@@ -95,7 +93,7 @@ public class StudyMenuActivity extends Activity {
 				view = inflater.inflate(R.layout.study_menu_grid_view_content, null);
 				TextView tv = (TextView)view.findViewById(R.id.textview);
 				ImageView imageView = (ImageView) view.findViewById(R.id.imageview);
-				imageView.setImageResource(GetImage.getDrawable(context, listTopic.get(position).getImageURL()));
+				imageView.setImageResource(ResourceR.getDrawable(context, listTopic.get(position).getImageURL()));
 				tv.setText(listTopic.get(position).getName());
 				
 			} else {
