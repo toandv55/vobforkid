@@ -39,7 +39,7 @@ public class Timer {
 		    public void onFinish() {
 		    	tv.setText("Thoi gian: 0");
 		    	finish = true;
-		    	new Dialog(context, "Hoàn thành", "Chúc mừng bạn đã đạt được " + Game.scoreTotal + "điểm").show();	  
+		    	new MyDialog(context, "Hoàn thành", "Chúc mừng bạn đã đạt được " + Game.scoreTotal + "điểm").show();	  
 		    }
 		};
 	  cdt.start();

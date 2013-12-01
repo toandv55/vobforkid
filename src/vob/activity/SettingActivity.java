@@ -2,6 +2,7 @@ package vob.activity;
 
 import vob.game.Game;
 import vob.lib.Alert;
+import vob.lib.MyDialog;
 import vob.orm.WordMapper;
 import android.os.Bundle;
 import android.app.Activity;
@@ -21,12 +22,16 @@ public class SettingActivity extends Activity {
 		final RadioGroup chooseTime = (RadioGroup) findViewById(R.id.choose_time);
 		final RadioGroup chooseLevel = (RadioGroup) findViewById(R.id.choose_level);
 		
+		RadioButton choose5 = (RadioButton) findViewById(R.id.choose_5);
+		choose5.setChecked(true);
+		RadioButton chooseEasy = (RadioButton) findViewById(R.id.choose_easy);
+		chooseEasy.setChecked(true);
+		
 		Button ok = (Button) findViewById(R.id.ok);
 		ok.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				new Alert(SettingActivity.this, "Ok click").show();
 				
 				if(musicBackground.isChecked()) {
 					
@@ -39,7 +44,7 @@ public class SettingActivity extends Activity {
 				int chooseTimeId = chooseTime.getCheckedRadioButtonId();
 				RadioButton rbChooseTime = (RadioButton) findViewById(chooseTimeId);
 				String time = (String) rbChooseTime.getText();
-				Game.timePlay = Integer.parseInt(time);
+				Game.timePlay = Integer.parseInt(time) * 60 * 1000;
 				
 				int chooseLevelId = chooseLevel.getCheckedRadioButtonId();
 				RadioButton rbChooseLevel = (RadioButton) findViewById(chooseLevelId);
@@ -53,7 +58,7 @@ public class SettingActivity extends Activity {
 				} else if(strLevel.equals("Khó") == true) {
 					level = 3;
 				} else if(strLevel.equals("Rất khó") == true) {
-					level = 5;
+					level = 4;
 				}
 				Game.level = level;
 				

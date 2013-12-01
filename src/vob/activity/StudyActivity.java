@@ -99,6 +99,12 @@ public class StudyActivity extends Activity {
 			}
 		});
 		
+		TextView tvTime = (TextView) findViewById(R.id.time);
+		tvTime.setText("Thời gian : " + Game.timePlay + ":00");
+		
+		TextView tvScore = (TextView) findViewById(R.id.score);
+		tvScore.setText("Điểm : 0");
+		
 		final ImageView add_score = (ImageView) findViewById(R.id.add_score);
 		add_score.setVisibility(View.INVISIBLE);
 	}
@@ -207,14 +213,14 @@ public class StudyActivity extends Activity {
 		
 		currentWord++;
 		
-		while(currentWord < listWord.size() - 1 && (listWord.get(pos[currentWord]).getWord().length() >= 5 + Game.level
-				|| listWord.get(pos[currentWord]).getWord().length() <= 1 + Game.level)) {
+		while(currentWord < listWord.size() - 1 && (listWord.get(pos[currentWord]).getWord().length() > 4 + 2 * (Game.level - 1)
+				|| listWord.get(pos[currentWord]).getWord().length() < 1 + (Game.level - 1))) {
 			currentWord++;
 		}		
 		
 		if(currentWord >= listWord.size() - 1) {
 			time.stop();
-			new Dialog(this, "Đã hết từ", "Chúc mừng bạn đã đạt được " + Game.scoreTotal + "điểm").show();
+			new MyDialog(this, "Đã hết từ", "Chúc mừng bạn đã đạt được " + Game.scoreTotal + "điểm").show();
 			return;
 		}
 		
@@ -238,14 +244,14 @@ public class StudyActivity extends Activity {
 	private void checkWord() {
 		if(gameWord.check() == true) {
     		if(scoreForWord < 0) scoreForWord = 0;
-    		new Alert(StudyActivity.this, "Chúc mừng bạn đã chọn đúng!\n Điểm cộng " + scoreForWord).show();
+    		//new Alert(StudyActivity.this, "Chúc mừng bạn đã chọn đúng!\n Điểm cộng " + scoreForWord).show();
     		Game.scoreTotal += scoreForWord;
     		ignore();
     		
     		final ImageView add_score = (ImageView) findViewById(R.id.add_score);
     		add_score.setVisibility(View.VISIBLE);
     		add_score.setImageResource(ResourceR.getDrawable(this, "add_" + scoreForWord));
-    		MyAnimation.start(MyAnimation.moverY(add_score, 0, -150, 4000, 0));
+    		MyAnimation.start(MyAnimation.moverY(add_score, 0, -100, 5000, 0));
     	}
 	}
 	
