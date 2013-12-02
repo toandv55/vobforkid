@@ -113,7 +113,7 @@ public class GameWord extends Word {
 		
 		for(int i =  0; i < toSelect.length(); i++) {
 			
-			if(canSelect[1] == false) continue;
+			if(canSelect[i] == false) continue;
 			
 			if(getWord().charAt(numSelected) == toSelect.charAt(i)) {
 				select(i);

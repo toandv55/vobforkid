@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background12">
+    android:background="@drawable/app_background12">
     
     <LinearLayout
         android:layout_width="match_parent"
 	    android:layout_height="30dp"
 	    android:orientation="horizontal"
-	    android:background="@drawable/color2">
+	    android:background="@drawable/app_color2">
 	    
         <TextView
             android:id="@+id/time"
@@ -59,7 +59,7 @@
 	        android:layout_height="40dp"
 	        android:layout_gravity="center"
 	        android:layout_marginTop="20dp"
-	        android:src="@drawable/continue_icon"
+	        android:src="@drawable/app_continue_icon"
 	        android:contentDescription="@string/no_image"
 	        android:gravity="center"/>
 	        
@@ -87,8 +87,8 @@
 	            android:layout_width="match_parent"
 	            android:layout_height="140dp"
 	            android:layout_gravity="center"
-	            android:src="@drawable/bag"
-	            android:background="@drawable/color4"
+	            android:src="@drawable/image"
+	            android:background="@drawable/app_color4"
 	            android:contentDescription="@string/no_image"
 	            />
 	       
@@ -102,7 +102,7 @@
 	            android:layout_marginTop="2dp"
 	            android:textSize="16sp"
 	            android:textColor="#0d3566"
-	            android:background="@drawable/color4"
+	            android:background="@drawable/app_color4"
 	            android:gravity="center"
 	            android:text="@string/no_value"/>
 	        
@@ -115,7 +115,7 @@
 			    android:verticalSpacing="0dp"			    
 			    android:horizontalSpacing="0dp"
 			    android:stretchMode="columnWidth"
-			    android:background="@drawable/color4"
+			    android:background="@drawable/app_color4"
 			    android:gravity="center"
 			/>
 			
@@ -128,7 +128,7 @@
 			    android:verticalSpacing="0dp"			   
 			    android:horizontalSpacing="0dp"
 			    android:stretchMode="columnWidth"
-			    android:background="@drawable/color4"
+			    android:background="@drawable/app_color4"
 			    android:gravity="center"
 			/>
 	       
@@ -148,7 +148,7 @@
 		        android:layout_height="38dp"
 		        android:layout_gravity="right"
 		        android:gravity="center"
-		        android:src="@drawable/add_10"
+		        android:src="@drawable/app_add_10"
 		        android:contentDescription="@string/no_image"/>        
 	        <ImageView
 			    android:id="@+id/ignore"
@@ -167,7 +167,7 @@
 		        android:layout_gravity="center"
 		        android:layout_marginTop="10dp"
 		        android:gravity="center"		        
-		        android:src="@drawable/help1"
+		        android:src="@drawable/app_help1"
 		        android:contentDescription="@string/no_image"/>
         </LinearLayout>
 	</LinearLayout>

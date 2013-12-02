@@ -30,6 +30,6 @@
 	    android:layout_marginLeft="10dp"
 	    android:layout_gravity="center"
 	    android:layout_marginRight="5dp"
-	    android:background="@drawable/delete_icon" />
+	    android:background="@drawable/app_delete_icon" />
 
 </LinearLayout>

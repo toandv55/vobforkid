@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-   	android:background="@drawable/background6">
+   	android:background="@drawable/app_background6">
     
     <TextView
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#ffffff"
-        android:background="@drawable/color2"
+        android:background="@drawable/app_color2"
         android:text="@string/study_menu"/>
     
 	<GridView
@@ -29,7 +29,7 @@
 	    android:horizontalSpacing="10dp"
 	    android:numColumns="4"
 	    android:stretchMode="columnWidth"
-	    android:background="@drawable/color4"
+	    android:background="@drawable/app_color4"
 	    android:alpha="0.8"
 	    android:verticalSpacing="10dp"/>
 </LinearLayout>

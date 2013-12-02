@@ -29,20 +29,10 @@ public class MyDialog {
 	
 	public void show() {
 		
-		//Dialog dialog = new Dialog(context);
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setMessage(message).setTitle(title);
-        // Add the buttons
-        builder.setPositiveButton(ok, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                        ((Activity) context).finish();
-                }
-        });
-		Dialog dialog = builder.create();
+		Dialog dialog = new Dialog(context);
 		
 		dialog.setContentView(R.layout.finish_dialog);
-		
-		//dialog.setTitle(title);
+		dialog.setTitle(title);
 		
 		TextView score = (TextView) dialog.findViewById(R.id.score);
 		score.setText("" + CurrentGame.scoreTotal);

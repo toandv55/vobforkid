@@ -27,7 +27,7 @@ public class ReviewMenuActivity extends Activity {
 	private void init() {
 		
 		TopicMapper topicMapper = new TopicMapper(this);
-		listTopic = topicMapper.getAllTopicsOnly();
+		listTopic = topicMapper.getAllTopicOnlySort();
 		
 		Topic allTopic = new Topic(-1, "all topic", "all_topic", null);
 		listTopic.add(0, allTopic);

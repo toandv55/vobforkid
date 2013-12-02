@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background3"
+    android:background="@drawable/app_background3"
     android:orientation="horizontal">
     
     <ImageView
@@ -26,8 +26,8 @@
 		    android:layout_width="350dp"
 		    android:layout_height="200dp"
 		    android:layout_gravity="center"
-		    android:src="@drawable/bag"
-		    android:background="@drawable/color4"
+		    android:src="@drawable/image"
+		    android:background="@drawable/app_color4"
 		    android:contentDescription="@string/no_image"/>
 		
 		<TextView
@@ -40,7 +40,7 @@
 		    android:textColor="#000000"
 		    android:textSize="14sp"
 		    android:gravity="center"
-		    android:background="@drawable/color4"
+		    android:background="@drawable/app_color4"
 		    android:text="@string/no_value"/>		
 		
     </LinearLayout>

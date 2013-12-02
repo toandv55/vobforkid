@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background13">
+    android:background="@drawable/app_background13">
     <ImageView
         android:id="@+id/clound"
         android:layout_width="match_parent"
         android:layout_height="60dp"        
         android:gravity="left"
-        android:src="@drawable/cl03"
+        android:src="@drawable/app_cl03"
         android:contentDescription="@string/no_image"
         android:alpha="0.7"/>
     <LinearLayout
@@ -26,8 +26,8 @@
 	        android:gravity="center"
 	        android:layout_marginTop="5dp"
 	        android:onClick="play"
-	        android:src="@drawable/play_icon"
-	        android:background="@drawable/color5"
+	        android:src="@drawable/app_play_icon"
+	        android:background="@drawable/app_color5"
 	        android:alpha="0.8"
 	        android:contentDescription="@string/no_image"/>
 	
@@ -39,8 +39,8 @@
 	        android:gravity="center"
 	        android:layout_marginTop="5dp"
 	        android:onClick="review"
-	        android:src="@drawable/review_icon"
-	         android:background="@drawable/color5"
+	        android:src="@drawable/app_review_icon"
+	         android:background="@drawable/app_color5"
 	        android:alpha="0.8"
 	        android:contentDescription="@string/no_image"/>
 		
@@ -52,8 +52,8 @@
 	        android:gravity="center"
 	        android:layout_marginTop="5dp"
 	        android:onClick="setting"
-	        android:src="@drawable/setting_icon"	        
-	         android:background="@drawable/color5"
+	        android:src="@drawable/app_setting_icon"	        
+	         android:background="@drawable/app_color5"
 	        android:alpha="0.8"
 	        android:contentDescription="@string/no_image"/>
 	
@@ -64,8 +64,8 @@
 	        android:layout_gravity="center"
 	        android:gravity="center"
 	        android:layout_marginTop="5dp"
-	        android:src="@drawable/exit_icon"	        
-	        android:background="@drawable/color5"
+	        android:src="@drawable/app_exit_icon"	        
+	        android:background="@drawable/app_color5"
 	        android:alpha="0.8"
 	        android:contentDescription="@string/no_image"/>
 		 

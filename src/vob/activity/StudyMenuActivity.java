@@ -29,7 +29,7 @@ public class StudyMenuActivity extends Activity {
 	
 	private void init() {
 		TopicMapper topicMapper = new TopicMapper(this);
-        listTopic = topicMapper.getAllTopics();
+        listTopic = topicMapper.getAllTopicOnlySort();
         
         Topic allTopic = new Topic(-1, "all topic", "add_topic", null);
         listTopic.add(0, allTopic);
