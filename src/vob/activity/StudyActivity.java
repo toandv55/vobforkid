@@ -214,7 +214,7 @@ public class StudyActivity extends Activity {
 			CurrentGame.scoreTotal -= 5;
 			final ImageView add_score = (ImageView) findViewById(R.id.add_score);
     		add_score.setVisibility(View.VISIBLE);
-    		add_score.setImageResource(ResourceR.getDrawable(this, "sub_5"));
+    		add_score.setImageResource(ResourceR.getDrawable(this, "app_sub_5"));
     		MyAnimation.start(MyAnimation.moverY(add_score, 0, -100, 5000, 0));
 		}
 		next();
@@ -261,7 +261,7 @@ public class StudyActivity extends Activity {
     		
     		final ImageView add_score = (ImageView) findViewById(R.id.add_score);
     		add_score.setVisibility(View.VISIBLE);
-    		add_score.setImageResource(ResourceR.getDrawable(this, "add_" + scoreForWord));
+    		add_score.setImageResource(ResourceR.getDrawable(this, "app_add_" + scoreForWord));
     		MyAnimation.start(MyAnimation.moverY(add_score, 0, -100, 5000, 0));
     		
     		next();    		

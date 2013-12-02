@@ -38,6 +38,7 @@ public class GameWord extends Word {
 		
 		int length = word.length();
 		boolean[] check = new boolean[length];
+		for(int i = 0; i < check.length; i++) check[i] = false;
 		
 		for(int i = 0; i < length; i++) {
 			int select = ((int) (Math.random() * 100)) % (length);

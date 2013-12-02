@@ -4,8 +4,8 @@
     android:layout_height="130dp"
     android:layout_gravity="center"
     android:orientation="vertical"
-    android:background="#000000"
-    android:alpha="0.8">
+    android:background="#000005"
+    android:alpha="0.7">
     <!-- 
   	<TextView 
       	android:id="@+id/title"
@@ -20,10 +20,11 @@
 	<TableLayout
 	    android:layout_width="match_parent"
 	    android:layout_height="95dp"
-	    android:background="@drawable/app_dialog01">
+	    android:background="@drawable/app_dialog01"
+	    android:alpha="0.65">
 	    <TableRow 
 	        android:layout_marginLeft="30dp"
-	        android:layout_marginTop="15dp">
+	        android:layout_marginTop="10dp">
 	        <TextView
 	            android:layout_width="120dp"
 	            android:layout_height="wrap_content"
@@ -68,8 +69,8 @@
 	    android:textStyle="bold"
 	    android:textColor="#ffffff"
 	    android:layout_marginTop="1dp"
-	    android:background="#000000"
-	    android:alpha="0.9"
+	    android:background="#000005"
+	    android:alpha="0.7"
 	    android:text="Đồng ý"/>
 	    
 </LinearLayout>
