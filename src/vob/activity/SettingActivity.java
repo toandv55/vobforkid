@@ -1,8 +1,9 @@
 package vob.activity;
 
-import vob.game.Game;
+import vob.game.CurrentGame;
 import vob.lib.Alert;
 import vob.lib.MyDialog;
+import vob.orm.TopicMapper;
 import vob.orm.WordMapper;
 import android.os.Bundle;
 import android.app.Activity;
@@ -38,13 +39,14 @@ public class SettingActivity extends Activity {
 				}
 				
 				if(deleteReview.isChecked()) {
-					
+					TopicMapper topicMapper = new TopicMapper(SettingActivity.this);
+					topicMapper.updateAllWordNotLeared();
 				}
 				
 				int chooseTimeId = chooseTime.getCheckedRadioButtonId();
 				RadioButton rbChooseTime = (RadioButton) findViewById(chooseTimeId);
 				String time = (String) rbChooseTime.getText();
-				Game.timePlay = Integer.parseInt(time) * 60 * 1000;
+				CurrentGame.timePlay = Integer.parseInt(time) * 60 * 1000;
 				
 				int chooseLevelId = chooseLevel.getCheckedRadioButtonId();
 				RadioButton rbChooseLevel = (RadioButton) findViewById(chooseLevelId);
@@ -52,15 +54,15 @@ public class SettingActivity extends Activity {
 				
 				int level = 1;
 				if(strLevel.equals("Dễ") == true) {
-					level = 1;
+					level = 0;
 				} else if(strLevel.equals("Vừa") == true) {
-					level = 2;
+					level = 1;
 				} else if(strLevel.equals("Khó") == true) {
-					level = 3;
+					level = 2;
 				} else if(strLevel.equals("Rất khó") == true) {
-					level = 4;
+					level = 3;
 				}
-				Game.level = level;
+				CurrentGame.level = level;
 				
 				SettingActivity.this.finish();
 			}

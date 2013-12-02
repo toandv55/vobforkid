@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 
-import vob.game.Game;
+import vob.game.CurrentGame;
 import vob.game.GameWord;
 import vob.lib.*;
 import vob.model.Word;
@@ -83,7 +83,7 @@ public class StudyActivity extends Activity {
 		final ImageView ignore = (ImageView) findViewById(R.id.ignore);
 		ignore.setOnClickListener(new View.OnClickListener() {
 			
-			public void onClick(View arg0) {
+			public void onClick(View arg0) {			
 				ignore();
 				ignore.startAnimation(AnimationUtils.loadAnimation(StudyActivity.this, R.anim.zoom_out));
 			}
@@ -100,7 +100,7 @@ public class StudyActivity extends Activity {
 		});
 		
 		TextView tvTime = (TextView) findViewById(R.id.time);
-		tvTime.setText("Thời gian : " + Game.timePlay + ":00");
+		tvTime.setText("Thời gian : " + CurrentGame.timePlay / 60 / 1000 + ":00");
 		
 		TextView tvScore = (TextView) findViewById(R.id.score);
 		tvScore.setText("Điểm : 0");
@@ -112,36 +112,37 @@ public class StudyActivity extends Activity {
 	private void init() {
 		
 		Bundle bundle = getIntent().getExtras();
-		
-		int topicId = bundle.getInt("idTopic");
-		
-		TopicMapper topicMapper = new TopicMapper(this);
-		
-		listWord = topicMapper.getATopicWithWord(topicId).getWordList();
-				
-		//set time
-		time = new Timer(this, (TextView) findViewById(R.id.time));
-		time.setTimeHave(Game.timePlay);
-		time.startCountDown();
-		
-		genPos();
-		
-		currentWord = -1;
-		ignore();
-		Game.scoreTotal = 0;
+        
+        int topicId = bundle.getInt("idTopic");
+        
+        TopicMapper topicMapper = new TopicMapper(this);
+        
+        if(topicId == -1) {
+        	listWord = topicMapper.getAllWord();
+        } else {
+        	listWord = topicMapper.getATopicWithWord(topicId).getWordList();
+        }
+                        
+        //set time
+        time = new Timer(this, (TextView) findViewById(R.id.time));
+        time.setTimeHave(CurrentGame.timePlay);
+        time.startCountDown();
+        
+        genPos();
+        
+        currentWord = -1;
+        next();
+        CurrentGame.scoreTotal = 0;
 	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_study);
-		
 		initView();
-		init();		
-	}
-	
-	
-	
+		init();
+	}	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -194,7 +195,7 @@ public class StudyActivity extends Activity {
 	    });
 		
 		TextView tvscoreTotal = (TextView) findViewById(R.id.score);
-		tvscoreTotal.setText("Điểm : " + Game.scoreTotal);
+		tvscoreTotal.setText("Điểm : " + CurrentGame.scoreTotal);
 	}
 	
 	private void listen() {
@@ -208,32 +209,43 @@ public class StudyActivity extends Activity {
         }
 	}
 	
-	//next word
 	private void ignore() {
+		if(CurrentGame.scoreTotal > 5) {
+			CurrentGame.scoreTotal -= 5;
+			final ImageView add_score = (ImageView) findViewById(R.id.add_score);
+    		add_score.setVisibility(View.VISIBLE);
+    		add_score.setImageResource(ResourceR.getDrawable(this, "sub_5"));
+    		MyAnimation.start(MyAnimation.moverY(add_score, 0, -100, 5000, 0));
+		}
+		next();
+	}
+	
+	//next word
+	private void next() {
 		
 		currentWord++;
 		
-		while(currentWord < listWord.size() - 1 && (listWord.get(pos[currentWord]).getWord().length() > 4 + 2 * (Game.level - 1)
-				|| listWord.get(pos[currentWord]).getWord().length() < 1 + (Game.level - 1))) {
+		while(currentWord < listWord.size() - 1 && (listWord.get(pos[currentWord]).getWord().length() > 4 + 2 * CurrentGame.level
+				|| listWord.get(pos[currentWord]).getWord().length() < 2 + CurrentGame.level)) {
 			currentWord++;
 		}		
 		
 		if(currentWord >= listWord.size() - 1) {
 			time.stop();
-			new MyDialog(this, "Đã hết từ", "Chúc mừng bạn đã đạt được " + Game.scoreTotal + "điểm").show();
+			new MyDialog(this, "Đã hết từ", "Chúc mừng bạn đã đạt được " + CurrentGame.scoreTotal + " điểm").show();
 			return;
 		}
 		
-		gameWord = new GameWord(listWord.get(pos[currentWord]), Game.level);
+		gameWord = new GameWord(listWord.get(pos[currentWord]), CurrentGame.level);
 		
 		scoreForWord = gameWord.getWord().length() * 10;
 		
 		//set this word is leared at time
-		Calendar c = Calendar.getInstance();
-		int time = c.DATE * 24 * 60 * 60 + c.MILLISECOND / 1000;
+		int time = Calendar.DATE * 24 * 60 * 60 + Calendar.MILLISECOND / 1000;
 		
 		TopicMapper topicMapper = new TopicMapper(this);
 		topicMapper.updateLearned(listWord.get(pos[currentWord]), 1);
+		topicMapper.updateLearnDate(listWord.get(pos[currentWord]), time);
 		//topicMapper.updateLearnDate(aWord, value)
 		
 		showImage();
@@ -245,13 +257,16 @@ public class StudyActivity extends Activity {
 		if(gameWord.check() == true) {
     		if(scoreForWord < 0) scoreForWord = 0;
     		//new Alert(StudyActivity.this, "Chúc mừng bạn đã chọn đúng!\n Điểm cộng " + scoreForWord).show();
-    		Game.scoreTotal += scoreForWord;
-    		ignore();
+    		CurrentGame.scoreTotal += scoreForWord;
     		
     		final ImageView add_score = (ImageView) findViewById(R.id.add_score);
     		add_score.setVisibility(View.VISIBLE);
     		add_score.setImageResource(ResourceR.getDrawable(this, "add_" + scoreForWord));
     		MyAnimation.start(MyAnimation.moverY(add_score, 0, -100, 5000, 0));
+    		
+    		next();    		
+    		
+    		//new Alert(this, "score").show();
     	}
 	}
 	

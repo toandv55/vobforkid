@@ -34,7 +34,7 @@ public class StartMenuActivity extends Activity {
 				play.startAnimation(AnimationUtils.loadAnimation(StartMenuActivity.this, R.anim.zoom_out));
 				Thread t = new Thread(new Runnable() {
 					public void run() {
-						sleep(500);
+						sleep(300);
 						play();
 					}
 				});
@@ -51,7 +51,7 @@ public class StartMenuActivity extends Activity {
 				review.startAnimation(AnimationUtils.loadAnimation(StartMenuActivity.this, R.anim.zoom_out));				
 				Thread t = new Thread(new Runnable() {
 					public void run() {
-						sleep(500);
+						sleep(300);
 						review();
 					}
 				});
@@ -67,7 +67,7 @@ public class StartMenuActivity extends Activity {
 				setting.startAnimation(AnimationUtils.loadAnimation(StartMenuActivity.this, R.anim.zoom_out));
 				Thread t = new Thread(new Runnable() {
 					public void run() {
-						sleep(500);
+						sleep(300);
 						setting();
 					}
 				});
@@ -85,7 +85,7 @@ public class StartMenuActivity extends Activity {
 				exit.startAnimation(AnimationUtils.loadAnimation(StartMenuActivity.this, R.anim.zoom_out));
 				Thread t = new Thread(new Runnable() {
 					public void run() {
-						sleep(500);
+						sleep(300);
 						exit();
 					}
 				});

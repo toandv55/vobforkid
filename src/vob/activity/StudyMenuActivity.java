@@ -2,6 +2,7 @@ package vob.activity;
 
 import java.util.List;
 
+import vob.lib.Alert;
 import vob.lib.InsertSomeData;
 import vob.lib.ResourceR;
 import vob.model.Topic;
@@ -28,7 +29,10 @@ public class StudyMenuActivity extends Activity {
 	
 	private void init() {
 		TopicMapper topicMapper = new TopicMapper(this);
-		listTopic = topicMapper.getAllTopics();		
+        listTopic = topicMapper.getAllTopics();
+        
+        Topic allTopic = new Topic(-1, "all topic", "add_topic", null);
+        listTopic.add(0, allTopic);
 	}
 	
 	private void initView() {
@@ -42,6 +46,7 @@ public class StudyMenuActivity extends Activity {
 	        	Bundle bundle = new Bundle();
 	        	bundle.putInt("idTopic", listTopic.get(position).getId());
 	        	intent.putExtras(bundle);
+	        	//new Alert(StudyMenuActivity.this, "" + listTopic.get(position).getId()).show();
 	        	startActivity(intent);
 	        }
 	    });

@@ -1,7 +1,9 @@
 package vob.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import vob.lib.Alert;
 import vob.lib.ResourceR;
 import vob.model.Word;
 import vob.orm.TopicMapper;
@@ -29,7 +31,13 @@ public class ReviewListActivity extends Activity {
 		
 		TopicMapper topicMapper = new TopicMapper(this);
 		
-		listWord = topicMapper.getReviewTopic(idTopic).getWordList();
+		if(idTopic == -1) {
+			listWord = topicMapper.getAllWordReview();
+		} else {
+			listWord = topicMapper.getReviewTopic(idTopic).getWordList();
+		}
+		//new Alert(this, ""+ idTopic).show();
+		//listWord = new ArrayList();
 		
 	}
 	

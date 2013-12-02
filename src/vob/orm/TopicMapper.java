@@ -380,6 +380,73 @@ public class TopicMapper extends SQLiteOpenHelper {
 		db.execSQL(sql);
 		return aWord;
 	}
+	
+	public List<Topic> getAllTopicOnlySort() {
+		List<Topic> topicsList = new ArrayList<Topic>();
+		Cursor cursor;
+		String sql = "SELECT * FROM " + TABLE_TOPICS + " ";
+		sql += "Order by " + COLUMN_NAME + " asc; ";
+		
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		// fetch the result set into Topic List
+		cursor = db.rawQuery(sql, null);
+		if (cursor.moveToFirst()) {
+			do {
+				Topic atopic = new Topic();
+				atopic.setId(cursor.getInt(0));
+				atopic.setName(cursor.getString(1));
+				atopic.setImageURL(cursor.getString(2));
+				atopic.setWordList(null);
+
+				topicsList.add(atopic);
+			} while (cursor.moveToNext());
+		}
+		return topicsList;
+	}
+	
+	public List<Word> getAllWordReview() {
+		//Topic reviewTopic = new Topic();
+
+		Cursor cursor;
+		List<Word> wordList = new ArrayList<Word>();
+		String getAllWordReviews = "SELECT * FROM " + TABLE_WORDS
+				+ " WHERE islearned ='1'"
+				+ " ORDER BY "
+				+ COLUMN_STUDIED_DATE + " DESC;";
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		// fetch the result set in to Word List
+		cursor = db.rawQuery(getAllWordReviews, null);
+		
+		if (cursor.moveToFirst()) {
+			do {
+				Word aword = new Word();
+				aword.setWord(cursor.getString(0));
+				aword.setPhonetic(cursor.getString(1));
+				aword.setMeaning(cursor.getString(2));
+				aword.setImageURL(cursor.getString(3));
+				aword.setAudioURL(cursor.getString(4));
+				aword.setTopicId(cursor.getInt(5));
+				aword.setIslearned(cursor.getInt(6));
+				aword.setStudiedDate(cursor.getLong(7));
+
+				wordList.add(aword);
+			} while (cursor.moveToNext());
+		}
+		//reviewTopic.setWordList(wordList);
+		return wordList;
+	}
+	
+	public boolean updateAllWordNotLeared() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		String sql = "update words set islearned = 0;";
+		
+		Log.d(sql, "Update StudiedDate");
+		db.execSQL(sql);
+		return true;
+	}
 
 	public static void main(String[] arg0) {
 

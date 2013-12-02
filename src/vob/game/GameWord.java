@@ -33,7 +33,7 @@ public class GameWord extends Word {
 		
 		for(int i = 0; i < level; i++) {
 			//word += (char) (97 + (int)(Math.random() * 100) % 25);
-			word += (char) (97 + (int)(Math.random() * 100) % 4);
+			word += (char) (97 + (int)(Math.random() * 100) % 25);
 		}
 		
 		int length = word.length();
@@ -41,7 +41,7 @@ public class GameWord extends Word {
 		
 		for(int i = 0; i < length; i++) {
 			int select = ((int) (Math.random() * 100)) % (length);
-			while(check[select]) {
+			while(check[select] && ( i != 0 || i != select)) {
 				select = (select + 1) % length;
 			}
 			check[select] = true;
@@ -99,18 +99,22 @@ public class GameWord extends Word {
 				
 		for(int i = numSelected - 1; i >= 0; i--) {
 			if(getWord().charAt(i) != selected.charAt(i)) {
-				
+				/*
 				//xoa bo cac tu da chon sai
 				for(int j = i; j < numSelected; j++) {
 					remove(j);
 				}
-				
+				*/
 				numSelected = i;
 			}
 		}
 		
+		boolean canSelect[] = this.showToSelect();
 		
 		for(int i =  0; i < toSelect.length(); i++) {
+			
+			if(canSelect[1] == false) continue;
+			
 			if(getWord().charAt(numSelected) == toSelect.charAt(i)) {
 				select(i);
 				break;

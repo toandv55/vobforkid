@@ -1,6 +1,6 @@
 package vob.lib;
 
-import vob.game.Game;
+import vob.game.CurrentGame;
 import android.content.Context;
 import android.os.CountDownTimer;
 import android.widget.TextView;
@@ -39,7 +39,7 @@ public class Timer {
 		    public void onFinish() {
 		    	tv.setText("Thoi gian: 0");
 		    	finish = true;
-		    	new MyDialog(context, "Hoàn thành", "Chúc mừng bạn đã đạt được " + Game.scoreTotal + "điểm").show();	  
+		    	new MyDialog(context, "Hoàn thành", "Chúc mừng bạn đã đạt được " + CurrentGame.scoreTotal + "điểm").show();	  
 		    }
 		};
 	  cdt.start();
