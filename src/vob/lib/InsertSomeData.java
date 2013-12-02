@@ -107,6 +107,68 @@ public class InsertSomeData {
 		addList.add(spider);
 		addList.add(tiger);
 		
+		Word bat = new Word("bat", "bæt ", "con dơi",animal);
+		Word buffalo = new Word("buffalo", "bʌf.ə.ləʊ ", "con trâu",animal);
+		Word bull = new Word("bull", "bʊl ", "bò tót",animal);
+		Word butterfly = new Word("butterfly", "bʌt.ə.flaɪ ", "con bướm",animal);
+		Word camel = new Word("camel", "kæm.əl", "lạc đà",animal);
+		Word crab = new Word("crab", "/kræb/ ", "con cua",animal);
+		Word deer = new Word("deer", "dɪər", "con dê",animal);
+		Word dolphin = new Word("dolphin", "dɒl.fɪn ", "cá heo",animal);
+		Word donkey = new Word("donkey", "dɒŋ.ki", "con lừa",animal);
+		Word dragonfly = new Word("dragonfly", "dræg.ə n.flaɪ", "chuồn chuồn",animal);
+		Word eagle = new Word("eagle", "i.gl", "đại bàng",animal);
+		Word fawn = new Word("fawn", "fɔn ", "con dê con",animal);
+		addList.add(bat);addList.add(deer);
+		addList.add(buffalo);addList.add(dolphin);
+		addList.add(bull);addList.add(donkey);
+		addList.add(butterfly);addList.add(dragonfly);
+		addList.add(camel);addList.add(eagle);
+		addList.add(crab);addList.add(fawn);
+		
+		Word fish = new Word("fish", "fɪʃ ", "cá",animal);
+		Word fox = new Word("fox", "fɒks ", "cáo",animal);
+		Word giraffe = new Word("giraffe", "dʒɪrɑf ", "huơu cao cổ",animal);
+		Word kitten = new Word("kitten", "kɪt.ən ", "mèo con",animal);
+		Word lion = new Word("lion", "laɪ.ən ", "sư tử",animal);
+		Word moose = new Word("moose", "mu:s ", "tuần lộc",animal);
+		Word owl = new Word("owl", "aʊl ", "con cú",animal);
+		Word panda = new Word("panda", "pæn.də ", "gấu trúc",animal);
+		Word parrot = new Word("parrot", "pær.ət ", "con vẹt",animal);
+		Word penguin = new Word("penguin", "peŋ.gwɪn ", "chim cánh cụt",animal);
+		Word pig = new Word("pig", "pɪg ", "con lợn",animal);
+		Word porcupine = new Word("porcupine", "pɔ.kjʊ.paɪn ", "con nhím",animal);
+		
+		addList.add(fish);addList.add(fox);
+		addList.add(giraffe);addList.add(kitten);
+		addList.add(lion);addList.add(moose);
+		addList.add(owl);addList.add(panda);
+		addList.add(parrot);addList.add(penguin);
+		addList.add(pig);addList.add(porcupine);
+		
+		Word puppy = new Word("puppy", "pʌp.i ", "chó con",animal);
+		Word rabbit = new Word("rabbit", "ræb.ɪt ", "con thỏ",animal);
+		Word raccoon = new Word("raccoon", "rækun ", "gấu trúc Mỹ",animal);
+		Word scorpion = new Word("scorpion", "skɔ.pi.ən ", "bọ cạp",animal);
+		Word seal = new Word("seal", "sil ", "hải cẩu",animal);
+		Word shark = new Word("shark", "ʃɑ:k ", "cá mập",animal);
+		Word snail = new Word("snail", "sneɪl ", "ốc sên",animal);
+		Word squirrel = new Word("squirrel", "skwɪr.əl", "sóc",animal);
+		Word turkey = new Word("turkey", "tɜ.ki ", "gà tây",animal);
+		Word turtle = new Word("turtle", "tɜ.tl ", "rùa",animal);
+		Word whale = new Word("whale", "weɪl ", "cá voi",animal);
+		Word wolf = new Word("wolf", "wʊlf ", "sói",animal);
+		
+		addList.add(puppy);addList.add(rabbit);
+		addList.add(raccoon);addList.add(scorpion);
+		addList.add(seal);addList.add(shark);
+		addList.add(snail);addList.add(squirrel);
+		addList.add(turkey);addList.add(turtle);
+		addList.add(whale);addList.add(wolf);
+		
+		
+		
+		
 		/*List Clothes*/ 
 		Word bag = new Word("bag", "bæg", "túi xách", "bag", "bag", clothes);
         Word dress = new Word("dress", "dres", "váy", "dress", "dress", clothes);
@@ -204,7 +266,7 @@ public class InsertSomeData {
         Word chocolate = new Word("chocolate", "tʃɒk.lət", "Chocolate", "chocolate", "chocolate", food);
         Word coconut = new Word("coconut", "kəʊ.kə.nʌt ", "quả dừa", "coconut", "coconut", food);
         Word dinner = new Word("dinner", "dɪn.ər", "bữa tối", "dinner", "dinner", food);
-        Word fish = new Word("fish", "fɪʃ", "cá", "fish", "fish", food);
+        
         Word fruit = new Word("fruit", "frut", "hoa quả", "fruit", "fruit", food);
         Word icecream = new Word("icecream", "aɪskrim", "kem", "icecream", "icecream", food);
         Word juice = new Word("juice", "dʒus", "nước hoa quả", "juice", "juice", food);
@@ -226,7 +288,7 @@ public class InsertSomeData {
         addList.add(chocolate);
         addList.add(coconut);
         addList.add(dinner);
-        addList.add(fish);
+  
         addList.add(fruit);
         addList.add(icecream);
         addList.add(lemonade);
@@ -440,7 +502,7 @@ public class InsertSomeData {
         Word priest = new Word("priest", "pri:st", "thầy tu",holiday);
         Word santa = new Word("Santa Claus ", "sæn.təklɔz", "ông già No-en",holiday);
         Word thanksgiving = new Word("thanksgiving", "θæŋksgɪv.ɪŋ", "lễ tạ ơn",holiday);
-        Word turkey = new Word("turkey", "tɜ.ki", "gà tây",holiday);
+       
         Word wrap = new Word("wrap", "/ræp ", "gói quà",holiday);
         Word wedding = new Word("wedding", "wed.ɪŋ", "đám cưới",holiday);
         
@@ -462,7 +524,7 @@ public class InsertSomeData {
         addList.add(priest);
         addList.add(santa);
         addList.add(thanksgiving);
-        addList.add(turkey);
+ ;
         addList.add(wrap);
         addList.add(wedding);
         
@@ -583,6 +645,52 @@ public class InsertSomeData {
         addList.add(veterinarian);
         addList.add(waiter);
         addList.add(waitress);
+        
+        Word accountant = new Word("accountant", "əkaʊn.tənt", "nhân viên kế toán",job);
+        Word architect = new Word("architect", "ɑ.kɪ.tekt ", "kiến trúc sư",job);
+        Word assembler = new Word("assembler", "əsem.blər", "nhân viên lắp ráp",job);
+        Word baker = new Word("baker", "beɪ.kər", "người làm bánh",job);
+        Word boss = new Word("boss", "bɑs", "ông chủ",job);
+        Word doctor = new Word("doctor", "dɒk.tər", "bác sỹ",job);
+        Word electrician = new Word("electrician", "ɪl.ektrɪʃ.ən", "thợ điện",job);
+        Word farmer = new Word("farmer", "fɑ.mər", "nông dan",job);
+        Word fisherman = new Word("fisherman", "fɪʃ.ə.mən ", "ngư dân",job);
+        Word guard = new Word("guard", "gɑ:d", "bảo vệ",job);
+        
+        addList.add(accountant);addList.add(architect);
+        addList.add(assembler);addList.add(baker);
+        addList.add(boss);addList.add(doctor);
+        addList.add(electrician);addList.add(farmer);
+        addList.add(fisherman);addList.add(guard);
+        
+        Word journalist = new Word("journalist", "dʒɜ.nə.lɪst", "nhà báo",job);
+        Word lawyer = new Word("lawyer", "lɔɪ.ər", "luật sư",job);
+        Word maid = new Word("maid", "meɪd", "nhân viên khách sạn",job);
+        Word mason = new Word("mason", "meɪ.sə n", "thợ xây",job);
+        Word messenger = new Word("messenger", "mes.ɪn.dʒər", "người đưa thư",job);
+        Word model = new Word("model", "mɒd.əl", "người mẫu",job);
+        Word ninja = new Word("ninja", "nɪn.dʒə", "ninja",job);
+        Word painter = new Word("painter", "peɪn.tər", "thợ sơn",job);
+        Word robber = new Word("robber", "rɒb.ər", "đạo tặc",job);
+        Word salesman = new Word("salesman", "seɪlz.mən", "nhân viên bán hàng",job);
+        
+        addList.add(journalist);addList.add(lawyer);
+        addList.add(maid);addList.add(mason);
+        addList.add(messenger);addList.add(model);
+        addList.add(ninja);addList.add(painter);
+        addList.add(robber);addList.add(salesman);
+        
+        
+        Word scientist = new Word("scientist", "saɪən.tɪst", "nhà nghiên cứu",job);
+        Word soldier = new Word("soldier", "səʊl.dʒər", "chiến sĩ",job);
+        Word student = new Word("student", "stju.dənt", "sinh viên",job);
+        Word tailor = new Word("tailor", "teɪ.lər", "thợ may",job);
+        Word welder = new Word("welder", "wel.dər", "thợ kim hoàn",job);
+        
+        addList.add(scientist);addList.add(tailor);
+        addList.add(soldier);addList.add(welder);
+        addList.add(student);
+        
    
       /*  10.Sport*/
         Topic sport = new Topic(10,"sport", "sport", null);
@@ -591,7 +699,7 @@ public class InsertSomeData {
         Word ball = new Word("ball", "bɔ:l", "quả bóng",sport);
         Word baseball = new Word("baseball", "beɪs.bɔ:l", "bóng chày",sport);
         Word basketball = new Word("basketball", "bɑ:skɪt.bɔl", "bóng rổ",sport);
-        Word bat = new Word("bat", "bæt", "gậy đánh bóng",sport);
+        
         Word birdie = new Word("birdie", "bɜ:di", "quả cầu",sport);
         Word catcher = new Word("catcher", "kætʃ.ər", "người bắt bóng(bóng chày)",sport);
         Word cup = new Word("cup", "kʌp", "cúp",sport);
@@ -603,7 +711,7 @@ public class InsertSomeData {
         addList.add(ball);addList.add(cup);
         addList.add(baseball);addList.add(cycling);
         addList.add(basketball);addList.add(football);
-        addList.add(bat);addList.add(footballer);
+        addList.add(footballer);
         addList.add(birdie);
         
         Word goalkeeper = new Word("goalkeeper", "gəʊlki:pər", "thủ môn",sport);
@@ -645,6 +753,40 @@ public class InsertSomeData {
         addList.add(soccer);addList.add(wrestling);
         addList.add(stadium);
     
+        Word aerobic = new Word("aerobic", "eərəʊ.bɪk", "bộ môn aerobic",sport);
+        Word billiards = new Word("billiards", "bɪl.i.ədz", "bi a",sport);
+        Word boxing = new Word("boxing", "bɒk.sɪŋ", "đấm bốc",sport);
+        Word chess = new Word("chess", "tʃes", "cờ vua",sport);
+        Word cue = new Word("cue", "kju", "gậy đánh bia",sport);
+        Word dancer = new Word("dancer", "dɑn:sər", "vũ công",sport);
+        Word dart = new Word("dart", "dɑ:rt", "ném phi tiêu",sport);
+        Word fishing = new Word("fishing", "fɪʃ.ɪŋ", "câu cá",sport);
+        Word goggles = new Word("goggle", "gɒg.lz", "kính bơi",sport);
+        Word hiking = new Word("hiking", "haɪ.kɪŋ", "đi bộ đường dài",sport);
+        
+        addList.add(aerobic);addList.add(billiards);
+        addList.add(boxing);addList.add(chess);
+        addList.add(cue);addList.add(fishing);
+        addList.add(dart);addList.add(dancer);
+        addList.add(goggles);addList.add(hiking);
+        
+        Word matador = new Word("matador", "mæt.ə.dɔr", "dũng sĩ đấu bò",sport);
+        Word ribbon = new Word("ribbon", "rɪb.ə n", "dây băng",sport);
+        Word rugby = new Word("rugby", "rʌg.bi", "bóng bầu dục",sport);
+        Word stopwatch = new Word("stopwatch", "stɒp.wɒtʃ", "đồng hồ bấm giờ",sport);
+        Word surfboard = new Word("surfboard", "sɜf.bɔd", "ván lướt sóng",sport);
+        Word torch = new Word("torch", "tɔtʃ ", "ngọn đuốc",sport);
+        Word trampoline = new Word("trampoline", "træm.pə l.in", "tấm bạt lò xo",sport);
+     
+        addList.add(matador);addList.add(ribbon);
+        
+        addList.add(rugby);addList.add(stopwatch);
+        
+        addList.add(surfboard);addList.add(torch);
+        
+        addList.add(trampoline);
+        ;
+        
         /*
         11. Transportation*/
         Topic transportaion = new Topic(11,"transportaion", "transportaion", null);
