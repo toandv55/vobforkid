@@ -32,7 +32,7 @@ public class InsertSomeData {
 		Topic animal = new Topic(1, "animal", "animal", null );
 		Topic clothes = new Topic(2, "clothes", "clothes", null );
 		Topic food = new Topic(3, "food", "food", null );
-		Topic fairytail = new Topic(4,"fairy tail", "fairy tail", null);
+		Topic fairytail = new Topic(4,"fairytail", "fairytail", null);
 		Topic emotion = new Topic(5,"emotion", "emotion", null);
 		Topic family = new Topic(6,"family", "family", null);
 		Topic holiday = new Topic(7,"holiday", "holiday", null);
