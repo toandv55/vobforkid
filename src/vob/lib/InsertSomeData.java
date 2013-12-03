@@ -39,7 +39,7 @@ public class InsertSomeData {
 		Topic body = new Topic(8,"body", "body", null);
 		Topic job = new Topic(9,"job", "job", null);
 		Topic sport = new Topic(10,"sport", "sport", null);
-		Topic transportaion = new Topic(11,"transportaion", "transportaion", null);
+		Topic transportation = new Topic(11,"transportation", "transportation", null);
 		Topic wheather = new Topic(12,"wheather", "wheather", null);
 		
 		Log.d ("Insert ","Initiate inserting new topics  ");
@@ -53,7 +53,7 @@ public class InsertSomeData {
 		topicMaper.add(body);
 		topicMaper.add(job);
 		topicMaper.add(sport);
-		topicMaper.add(transportaion);
+		topicMaper.add(transportation);
 		topicMaper.add(wheather);
 		
 		
@@ -789,20 +789,20 @@ public class InsertSomeData {
         
         /*
         11. Transportation*/
-        Topic transportaion = new Topic(11,"transportaion", "transportaion", null);
+        Topic transportation = new Topic(11,"transportation", "transportation", null);
         
-        Word airplane = new Word("airplane", "eə.pleɪn", "máy bay",transportaion);
-        Word airport = new Word("airport", "eə.pɔ:t", "sân bay",transportaion);
-        Word anchor = new Word("anchor", "æŋ.kər", "mỏ neo",transportaion);
-        Word backpack = new Word("backpack", "bæk.pæk", "ba lô",transportaion);
-        Word battery = new Word("battery", "bæt.ər.i", "pin",transportaion);
-        Word boat = new Word("boat", "bəʊt", "thuyền",transportaion);
-        Word bus = new Word("bus", "bʌs", "xe buýt",transportaion);
-        Word car = new Word("car", "kɑ:r", "xe ô tô",transportaion);
-        Word engine = new Word("engine", "en.dʒɪn", "động cơ",transportaion);
-        Word garage = new Word("garage", "gær.ɑʒ ", "gara",transportaion);
-        Word helicopter = new Word("helicopter", "hel.ɪkɒp.tər", "trực thăng",transportaion);
-        Word kayak = new Word("kayak", "kaɪ.æk", "xuồng caiac",transportaion);
+        Word airplane = new Word("airplane", "eə.pleɪn", "máy bay",transportation);
+        Word airport = new Word("airport", "eə.pɔ:t", "sân bay",transportation);
+        Word anchor = new Word("anchor", "æŋ.kər", "mỏ neo",transportation);
+        Word backpack = new Word("backpack", "bæk.pæk", "ba lô",transportation);
+        Word battery = new Word("battery", "bæt.ər.i", "pin",transportation);
+        Word boat = new Word("boat", "bəʊt", "thuyền",transportation);
+        Word bus = new Word("bus", "bʌs", "xe buýt",transportation);
+        Word car = new Word("car", "kɑ:r", "xe ô tô",transportation);
+        Word engine = new Word("engine", "en.dʒɪn", "động cơ",transportation);
+        Word garage = new Word("garage", "gær.ɑʒ ", "gara",transportation);
+        Word helicopter = new Word("helicopter", "hel.ɪkɒp.tər", "trực thăng",transportation);
+        Word kayak = new Word("kayak", "kaɪ.æk", "xuồng caiac",transportation);
         addList.add(airplane);addList.add(bus);
         addList.add(airport);addList.add(car);
         addList.add(anchor);addList.add(engine);
@@ -810,15 +810,15 @@ public class InsertSomeData {
         addList.add(battery);addList.add(helicopter);
         addList.add(boat);addList.add(kayak);
         
-        Word luggage = new Word("luggage", "lʌg.ɪdʒ", "hành lý",transportaion);
-        Word parachute = new Word("parachute", "pær.ə.ʃut", "dù",transportaion);
-        Word plane = new Word("plane", "pleɪn", "máy bay",transportaion);
-        Word railroad = new Word("railroad", "reɪl.rəʊd", "đường ray",transportaion);
-        Word road = new Word("road", "rəʊd ", "đường phố",transportaion);
-        Word sailboat = new Word("sailboat", "seɪlbəʊt ", "thuyền buồm",transportaion);
-        Word ship = new Word("ship", "ʃɪp ", "du thuyền",transportaion);
-        Word shop = new Word("shop", "ʃɑp ", "cửa hàng",transportaion);
-        Word street = new Word("street", "strit ", "đường phố",transportaion);
+        Word luggage = new Word("luggage", "lʌg.ɪdʒ", "hành lý",transportation);
+        Word parachute = new Word("parachute", "pær.ə.ʃut", "dù",transportation);
+        Word plane = new Word("plane", "pleɪn", "máy bay",transportation);
+        Word railroad = new Word("railroad", "reɪl.rəʊd", "đường ray",transportation);
+        Word road = new Word("road", "rəʊd ", "đường phố",transportation);
+        Word sailboat = new Word("sailboat", "seɪlbəʊt ", "thuyền buồm",transportation);
+        Word ship = new Word("ship", "ʃɪp ", "du thuyền",transportation);
+        Word shop = new Word("shop", "ʃɑp ", "cửa hàng",transportation);
+        Word street = new Word("street", "strit ", "đường phố",transportation);
         addList.add(luggage);addList.add(ship);
         addList.add(parachute);addList.add(shop);
         addList.add(plane);addList.add(street);
@@ -826,18 +826,18 @@ public class InsertSomeData {
         addList.add(road);
         addList.add(sailboat);
         
-        Word subway = new Word("subway", "sʌb.weɪ ", "đường ngầm",transportaion);
-        Word suitcase = new Word("suitcase", "sjut.keɪs", "vali",transportaion);
-        Word tanker = new Word("tanker", "tæŋ.kə r  ", "xe chở dầu",transportaion);
-        Word taxi = new Word("taxi", "tæk.si ", "taxi",transportaion);
-        Word tire = new Word("tire", "taɪər", "lốp xe",transportaion);
-        Word traffic = new Word("traffic", "træf.ɪk ", "giao thông",transportaion);
-        Word train = new Word("train", "treɪn ", "xe lửa",transportaion);
-        Word truck = new Word("truck", "trʌk ", "xe tải",transportaion);
-        Word trunk = new Word("trunk", "trʌŋk ", "cốp xe",transportaion);
-        Word tunnel = new Word("tunnel", "tʌn.əl", "đường hầm",transportaion);
-        Word van = new Word("van", "væn ", "xe hành lý",transportaion);
-        Word wheel = new Word("wheel", "wil", "bánh xe",transportaion);
+        Word subway = new Word("subway", "sʌb.weɪ ", "đường ngầm",transportation);
+        Word suitcase = new Word("suitcase", "sjut.keɪs", "vali",transportation);
+        Word tanker = new Word("tanker", "tæŋ.kə r  ", "xe chở dầu",transportation);
+        Word taxi = new Word("taxi", "tæk.si ", "taxi",transportation);
+        Word tire = new Word("tire", "taɪər", "lốp xe",transportation);
+        Word traffic = new Word("traffic", "træf.ɪk ", "giao thông",transportation);
+        Word train = new Word("train", "treɪn ", "xe lửa",transportation);
+        Word truck = new Word("truck", "trʌk ", "xe tải",transportation);
+        Word trunk = new Word("trunk", "trʌŋk ", "cốp xe",transportation);
+        Word tunnel = new Word("tunnel", "tʌn.əl", "đường hầm",transportation);
+        Word van = new Word("van", "væn ", "xe hành lý",transportation);
+        Word wheel = new Word("wheel", "wil", "bánh xe",transportation);
         addList.add(subway);addList.add(train);
         addList.add(suitcase);addList.add(truck);
         addList.add(tanker);addList.add(trunk);
