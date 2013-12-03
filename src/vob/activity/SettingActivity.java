@@ -2,11 +2,15 @@ package vob.activity;
 
 import vob.game.CurrentGame;
 import vob.lib.Alert;
-import vob.lib.MyDialog;
+import vob.lib.BackgroundSoundService;
+import vob.lib.FinishDialog;
+import vob.lib.ResourceR;
 import vob.orm.TopicMapper;
 import vob.orm.WordMapper;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -19,14 +23,34 @@ public class SettingActivity extends Activity {
 	private void initView() {
 		
 		final CheckBox musicBackground = (CheckBox) findViewById(R.id.music_background);
-		final CheckBox deleteReview = (CheckBox) findViewById(R.id.delete_review);
-		final RadioGroup chooseTime = (RadioGroup) findViewById(R.id.choose_time);
-		final RadioGroup chooseLevel = (RadioGroup) findViewById(R.id.choose_level);
+		if(CurrentGame.soundBackground == true) {
+			musicBackground.setChecked(true);
+		}		
 		
-		RadioButton choose5 = (RadioButton) findViewById(R.id.choose_5);
-		choose5.setChecked(true);
-		RadioButton chooseEasy = (RadioButton) findViewById(R.id.choose_easy);
-		chooseEasy.setChecked(true);
+		final CheckBox deleteReview = (CheckBox) findViewById(R.id.delete_review);
+		if(CurrentGame.deleteReview == true) {
+			deleteReview.setChecked(true);
+		}
+		
+		final RadioGroup chooseTime = (RadioGroup) findViewById(R.id.choose_time);
+		if(CurrentGame.timePlay == 5 * 60 * 1000) {
+			((RadioButton) findViewById(R.id.choose_5)).setChecked(true);
+		} else if(CurrentGame.timePlay == 10 * 60 * 1000) {
+			((RadioButton) findViewById(R.id.choose_10)).setChecked(true);
+		} else {
+			((RadioButton) findViewById(R.id.choose_15)).setChecked(true);
+		}
+		
+		final RadioGroup chooseLevel = (RadioGroup) findViewById(R.id.choose_level);
+		if(CurrentGame.level == 0) {
+			((RadioButton) findViewById(R.id.choose_easy)).setChecked(true);
+		} else if(CurrentGame.level == 1) {
+			((RadioButton) findViewById(R.id.choose_medium)).setChecked(true);
+		} else if(CurrentGame.level == 2) {
+			((RadioButton) findViewById(R.id.choose_hard)).setChecked(true);
+		} else if(CurrentGame.level == 3) {
+			((RadioButton) findViewById(R.id.choose_very_hard)).setChecked(true);			
+		}
 		
 		Button ok = (Button) findViewById(R.id.ok);
 		ok.setOnClickListener(new View.OnClickListener() {
@@ -35,12 +59,24 @@ public class SettingActivity extends Activity {
 			public void onClick(View v) {
 				
 				if(musicBackground.isChecked()) {
-					
+					//startService(new Intent(SettingActivity.this,BackgroundSoundService.class));
+					CurrentGame.player = MediaPlayer.create(SettingActivity.this, ResourceR.getRaw(SettingActivity.this, "afraid")); 
+					CurrentGame.player.setLooping(true); // Set looping
+					CurrentGame.player.setVolume(100,100);
+					CurrentGame.player.start();
+					CurrentGame.soundBackground = true;
+				} else {
+					//stopService(new Intent(SettingActivity.this,BackgroundSoundService.class));
+					CurrentGame.player.stop();
+					CurrentGame.soundBackground = false;
 				}
 				
 				if(deleteReview.isChecked()) {
 					TopicMapper topicMapper = new TopicMapper(SettingActivity.this);
 					topicMapper.updateAllWordNotLeared();
+					CurrentGame.deleteReview = true;
+				} else {
+					CurrentGame.deleteReview = false;
 				}
 				
 				int chooseTimeId = chooseTime.getCheckedRadioButtonId();

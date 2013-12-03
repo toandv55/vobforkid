@@ -11,6 +11,8 @@ import vob.model.Word;
 import vob.orm.TopicMapper;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
@@ -142,7 +144,7 @@ public class StudyActivity extends Activity {
 		initView();
 		init();
 	}	
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -215,7 +217,13 @@ public class StudyActivity extends Activity {
 			final ImageView add_score = (ImageView) findViewById(R.id.add_score);
     		add_score.setVisibility(View.VISIBLE);
     		add_score.setImageResource(ResourceR.getDrawable(this, "app_sub_5"));
-    		MyAnimation.start(MyAnimation.moverY(add_score, 0, -100, 5000, 0));
+    		ObjectAnimator oba1 = MyAnimation.moverY(add_score, 0, -100, 5000, 0);
+    		ObjectAnimator oba2 = MyAnimation.fadeOut(add_score, 0, 4000, 0);
+    		AnimatorSet ans = new AnimatorSet();
+    		ans.play(oba1).with(oba2);
+    		ans.setDuration(5000);
+    		ans.start();
+    		//MyAnimation.start(MyAnimation.moverY(add_score, 0, -100, 5000, 0));
 		}
 		next();
 	}
@@ -232,7 +240,7 @@ public class StudyActivity extends Activity {
 		
 		if(currentWord >= listWord.size() - 1) {
 			time.stop();
-			new MyDialog(this, "Đã hết từ", "Chúc mừng bạn đã đạt được " + CurrentGame.scoreTotal + " điểm").show();
+			new FinishDialog(this, "Đã hết từ", "Chúc mừng bạn đã đạt được " + CurrentGame.scoreTotal + " điểm").show();
 			return;
 		}
 		
