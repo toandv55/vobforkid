@@ -143,7 +143,6 @@ public class StudyActivity extends Activity {
 		setContentView(R.layout.activity_study);
 		initView();
 		init();
-		new Alert(this, "Oncreate").show();
 	}	
 	
 	@Override
