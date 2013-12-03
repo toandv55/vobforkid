@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="250dp"
-    android:layout_height="130dp"
+    android:layout_height="150dp"
     android:layout_gravity="center"
     android:orientation="vertical"
-    android:background="#000005"
+    android:background="@drawable/app_dialog01"
     android:alpha="0.7">
-    <!-- 
+   
   	<TextView 
       	android:id="@+id/title"
       	android:layout_width="match_parent"
@@ -14,14 +14,16 @@
       	android:gravity="center"
       	android:textSize="18sp"
       	android:textColor="#ffffff"
+      	android:background="@drawable/app_color1"
       	android:textStyle="bold"
-      	android:text="Hoàn thành"/>
-    -->
+      	android:text="Chúc mừng"/>
+  	
 	<TableLayout
+	    android:id="@+id/table"
 	    android:layout_width="match_parent"
-	    android:layout_height="95dp"
-	    android:background="@drawable/app_dialog01"
-	    android:alpha="0.65">
+	    android:layout_height="130dp"
+	    
+	    android:alpha="1">
 	    <TableRow 
 	        android:layout_marginLeft="30dp"
 	        android:layout_marginTop="10dp">
@@ -50,7 +52,7 @@
 	            android:textSize="18sp"
 	            android:textColor="#333366"
 	            android:textStyle="bold"
-	            android:text="Độ khó"/>
+	            android:text="Mức độ"/>
 	        <TextView
 	            android:id="@+id/level"
 	            android:layout_width="100dp"
@@ -61,7 +63,7 @@
 	            android:text="Dễ"/>
 	    </TableRow>
 	</TableLayout>
-	
+	<!-- 
 	<Button 
 	    android:id="@+id/ok"
 	    android:layout_width="match_parent"
@@ -72,5 +74,5 @@
 	    android:background="#000005"
 	    android:alpha="0.7"
 	    android:text="Đồng ý"/>
-	    
+	     -->
 </LinearLayout>

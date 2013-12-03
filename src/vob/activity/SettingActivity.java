@@ -2,7 +2,7 @@ package vob.activity;
 
 import vob.game.CurrentGame;
 import vob.lib.Alert;
-import vob.lib.MyDialog;
+import vob.lib.FinishDialog;
 import vob.orm.TopicMapper;
 import vob.orm.WordMapper;
 import android.os.Bundle;

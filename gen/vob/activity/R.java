@@ -195,10 +195,10 @@ public final class R {
         public static final int z=0x7f0200a7;
     }
     public static final class id {
-        public static final int LinearLayout01=0x7f0a0027;
-        public static final int action_settings=0x7f0a002c;
+        public static final int LinearLayout01=0x7f0a0028;
+        public static final int action_settings=0x7f0a002d;
         public static final int add_score=0x7f0a0020;
-        public static final int back=0x7f0a0025;
+        public static final int back=0x7f0a0026;
         public static final int cancel=0x7f0a000e;
         public static final int center=0x7f0a001a;
         public static final int choose_10=0x7f0a0006;
@@ -211,7 +211,7 @@ public final class R {
         public static final int choose_time=0x7f0a0004;
         public static final int choose_very_hard=0x7f0a000c;
         public static final int clound=0x7f0a000f;
-        public static final int delete=0x7f0a0029;
+        public static final int delete=0x7f0a002a;
         public static final int delete_review=0x7f0a0003;
         public static final int description=0x7f0a001c;
         public static final int exit=0x7f0a0013;
@@ -219,13 +219,13 @@ public final class R {
         public static final int guide=0x7f0a0022;
         public static final int ignore=0x7f0a0021;
         public static final int image=0x7f0a001b;
-        public static final int imageview=0x7f0a002a;
+        public static final int imageview=0x7f0a002b;
         public static final int left=0x7f0a0017;
-        public static final int level=0x7f0a0024;
+        public static final int level=0x7f0a0025;
         public static final int list_view=0x7f0a0001;
         public static final int listen=0x7f0a0019;
         public static final int music_background=0x7f0a0002;
-        public static final int next=0x7f0a0026;
+        public static final int next=0x7f0a0027;
         public static final int ok=0x7f0a000d;
         public static final int pager=0x7f0a0000;
         public static final int pause=0x7f0a0018;
@@ -235,11 +235,12 @@ public final class R {
         public static final int score=0x7f0a0016;
         public static final int selected=0x7f0a001d;
         public static final int setting=0x7f0a0012;
-        public static final int textview=0x7f0a002b;
+        public static final int table=0x7f0a0024;
+        public static final int textview=0x7f0a002c;
         public static final int time=0x7f0a0014;
         public static final int title=0x7f0a0015;
         public static final int to_select=0x7f0a001e;
-        public static final int tvViewRow=0x7f0a0028;
+        public static final int tvViewRow=0x7f0a0029;
     }
     public static final class layout {
         public static final int activity_loading=0x7f030000;

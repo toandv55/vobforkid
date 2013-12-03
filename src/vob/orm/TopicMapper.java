@@ -51,7 +51,7 @@ public class TopicMapper extends SQLiteOpenHelper {
 				+ COLUMN_STUDIED_DATE + " INTEGER" + ")";
 		db.execSQL(CREATE_WORDS_TABLE);
 		db.execSQL(CREATE_TOPICS_TABLE);
-		new Alert(context, "onCreate").show();
+		//new Alert(context, "onCreate").show();
 	}
 
 	@Override
